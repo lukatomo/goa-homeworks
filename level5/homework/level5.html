@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .info {
+            margin-bottom: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- პირადი ინფორმაცია -->
+    <div class="info">
+        <h1>ჩემი პირადი ინფორმაცია</h1>
+        <p><strong>სახელი:</strong> გიორგი</p>
+        <p><strong>გვარი:</strong> მამარდაშვილი</p>
+        <p><strong>ასაკი:</strong> 30</p>
+    </div>
+    
+    <!-- ღილაკი -->
+    <button class="button" onclick="alert('გილოცავთ! ღილაკი დაწკაპუნდა!')">Click me</button>
+
+    <!-- JavaScript Alert ფუნქციის შემცველი ღილაკი -->
+    <script>
+        // Alert შეტყობინება ღილაკზე დაჭერის დროს
+        function showAlert() {
+            alert('გილოცავთ! ღილაკი დაწკაპუნდა!');
+        }
+    </script>
+</body>
+</html>
