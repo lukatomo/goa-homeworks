@@ -1,0 +1,268 @@
+<!--HTML-ში label და input ელემენტები ერთმანეთთან დაკავშირების პროცესში label-ის for ატრიბუტი გამოიყენება.
+ ეს ატრიბუტი უნდა იყოს დაკავშირებული იმ input-ის id-თან,
+  რომელსაც label აღწერს.
+   როდესაც label კლიკავთ, ეს ავტომატურად ფოკუსს გადასცემს შესაბამის input-ზე, რაც აუმჯობესებს ფორმების ხელმისაწვდომობას და მოხმარების გამოცდილებას.>
+
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input ტიპები</title>
+</head>
+<body>
+    <form>
+        <!-- ტექსტური ველი -->
+        <label for="text">ტექსტური ველი:</label>
+        <input type="text" id="text" name="text"><br><br>
+
+        <!-- პაროლი -->
+        <label for="password">პაროლი:</label>
+        <input type="password" id="password" name="password"><br><br>
+
+        <!-- ელ.ფოსტის ველი -->
+        <label for="email">ელ.ფოსტა:</label>
+        <input type="email" id="email" name="email"><br><br>
+
+        <!-- ტელეფონის ნომერი -->
+        <label for="tel">ტელეფონის ნომერი:</label>
+        <input type="tel" id="tel" name="tel"><br><br>
+
+        <!-- რიცხვი -->
+        <label for="number">რიცხვი:</label>
+        <input type="number" id="number" name="number"><br><br>
+
+        <!-- თარიღი -->
+        <label for="date">თარიღი:</label>
+        <input type="date" id="date" name="date"><br><br>
+
+        <!-- დრო -->
+        <label for="time">დრო:</label>
+        <input type="time" id="time" name="time"><br><br>
+
+        <!-- ძიება -->
+        <label for="search">ძიება:</label>
+        <input type="search" id="search" name="search"><br><br>
+
+        <!-- ფაილი -->
+        <label for="file">ფაილის ატვირთვა:</label>
+        <input type="file" id="file" name="file"><br><br>
+
+        <!-- სექრეტული რიცხვი -->
+        <label for="hidden">დამალული:</label>
+        <input type="hidden" id="hidden" name="hidden" value="secret_value"><br><br>
+
+        <!-- რედაქტირება -->
+        <label for="range">რედაქტირების სექრეტური ველი:</label>
+        <input type="range" id="range" name="range" min="0" max="100"><br><br>
+
+        <!-- ჩეკბოქსი -->
+        <label for="checkbox">ჩეკბოქსი:</label>
+        <input type="checkbox" id="checkbox" name="checkbox"><br><br>
+
+        <!-- რადიო -->
+        <label for="radio1">რადიო 1:</label>
+        <input type="radio" id="radio1" name="radio" value="option1"><br>
+        <label for="radio2">რადიო 2:</label>
+        <input type="radio" id="radio2" name="radio" value="option2"><br><br>
+
+        <!-- შერჩევის სექრეტური ველი -->
+        <label for="select">შერჩევა:</label>
+        <select id="select" name="select">
+            <option value="option1">ოპცია 1</option>
+            <option value="option2">ოპცია 2</option>
+            <option value="option3">ოპცია 3</option>
+        </select><br><br>
+
+        <!-- ტექსტური სექრეტური ველი -->
+        <label for="textarea">ტექსტური ზონა:</label>
+        <textarea id="textarea" name="textarea" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="გაგზავნა">
+    </form>
+</body>
+</html>
+
+<!--1. Placeholder ატრიბუტი:
+
+საუბარი: Placeholder ატრიბუტი არის ტექსტი, რომელიც გამოჩნდება input ველში, როდესაც იგი ცარიელია. ეს ტექსტი მუშაობს როგორც მითითება ან მაგალითი იმისა, რაც უნდა ჩაწეროს მომხმარებელმა. როგორც კი მომხმარებელი დაიწყებს აკრეფას, placeholder-ი უჩინარდება.
+გამოყენება: Placeholder-ი გთავაზობთ მოკლე ინფორმაცია იმაზე, რა უნდა შეიყვანოს მომხმარებელმა კონკრეტულ ველში.
+
+<input type="text" placeholder="შეიყვანეთ თქვენი სახელი">
+ 
+2. Required ატრიბუტი:
+
+საუბარი: Required ატრიბუტი ნიშნავს, რომ კონკრეტული input ველი აუცილებელია და მომხმარებელს მისი შევსება უნდა მოითხოვოს. თუ ველი არ შეივსება და ფორმა გაგზავნდება, ბრაუზერი გამოგიგზავნით შეცდომის შეტყობინებას და ფორმის გაგზავნა ვერ მოხდება.
+გამოყენება: ეს ატრიბუტი გარანტიას გაწვდოს, რომ ფორმის შეყვანისას ყველა აუცილებელი ინფორმაცია იქნება გაწვდილი.
+
+<input type="email" required placeholder="შეიყვანეთ თქვენი ელ.ფოსტა">
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { background-color: #333; color: white; padding: 10px; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        .container { padding: 20px; }
+        .button { padding: 10px 20px; margin: 5px; text-decoration: none; color: white; background-color: #007BFF; border: none; border-radius: 5px; }
+        .button:hover { background-color: #0056b3; }
+        .image { max-width: 100%; height: auto; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <h1>Welcome to the Home Page</h1>
+        <p>This is the main page of our website. Below you can find some information, an image, buttons, a list, and a form.</p>
+        <img src="image.jpg" alt="Sample Image" class="image">
+        <button class="button">Button 1</button>
+        <button class="button">Button 2</button>
+        <ul>
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+        <form action="submit.html" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Enter your age"><br><br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Enter your message"></textarea><br><br>
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Page Website</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { background-color: #333; color: white; padding: 10px; position: fixed; width: 100%; top: 0; }
+        nav a { color: white; margin: 0 15px; text-decoration: none; }
+        nav a.active { text-decoration: underline; }
+        section { padding: 20px; margin-top: 60px; }
+        .container { max-width: 800px; margin: auto; }
+        .button { padding: 10px 20px; margin: 5px; text-decoration: none; color: white; background-color: #007BFF; border: none; border-radius: 5px; }
+        .button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#info" class="active">About Us</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="info">
+        <div class="container">
+            <h1>About Us</h1>
+            <p>Welcome to our website! We are committed to providing the best service and experience. Below you can find information about what we do and how we can help you.</p>
+            <img src="image.jpg" alt="About Us Image" style="max-width: 100%; height: auto;">
+            <button class="button">Learn More</button>
+            <button class="button">Get Started</button>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h1>Contact Us</h1>
+            <p>If you have any questions or need assistance, feel free to reach out to us using the contact form below.</p>
+            <form action="#" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea><br><br>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to highlight the active section link
+        document.addEventListener('scroll', function() {
+            var sections = document.querySelectorAll('section');
+            var navLinks = document.querySelectorAll('nav a');
+            var currentSection = '';
+
+            sections.forEach(function(section) {
+                var sectionTop = section.offsetTop;
+                var sectionHeight = section.offsetHeight;
+                if (pageYOffset >= sectionTop - 60 && pageYOffset < sectionTop + sectionHeight - 60) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(function(link) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+<div>
+    <h1>Block-level Example</h1>
+    <p>This is a paragraph inside a div.</p>
+</div>
+
+<p>This is a paragraph.</p>
+<p>This is another paragraph.</p>
+
+<h1>Main Heading</h1>
+<h2>Subheading</h2>
+
+<p>This is a <span style="color: red;">red text</span> in a paragraph.</p>
+
+<a href="https://www.example.com">Visit Example.com</a>
+
+<p>This is <strong>important</strong> text.</p>
