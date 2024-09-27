@@ -1,0 +1,61 @@
+<!--1. Placeholder ატრიბუტი:
+
+საუბარი: Placeholder ატრიბუტი არის ტექსტი, რომელიც გამოჩნდება input ველში, როდესაც იგი ცარიელია. ეს ტექსტი მუშაობს როგორც მითითება ან მაგალითი იმისა, რაც უნდა ჩაწეროს მომხმარებელმა. როგორც კი მომხმარებელი დაიწყებს აკრეფას, placeholder-ი უჩინარდება.
+გამოყენება: Placeholder-ი გთავაზობთ მოკლე ინფორმაცია იმაზე, რა უნდა შეიყვანოს მომხმარებელმა კონკრეტულ ველში.
+
+<input type="text" placeholder="შეიყვანეთ თქვენი სახელი">
+ 
+2. Required ატრიბუტი:
+
+საუბარი: Required ატრიბუტი ნიშნავს, რომ კონკრეტული input ველი აუცილებელია და მომხმარებელს მისი შევსება უნდა მოითხოვოს. თუ ველი არ შეივსება და ფორმა გაგზავნდება, ბრაუზერი გამოგიგზავნით შეცდომის შეტყობინებას და ფორმის გაგზავნა ვერ მოხდება.
+გამოყენება: ეს ატრიბუტი გარანტიას გაწვდოს, რომ ფორმის შეყვანისას ყველა აუცილებელი ინფორმაცია იქნება გაწვდილი.
+
+<input type="email" required placeholder="შეიყვანეთ თქვენი ელ.ფოსტა"> -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+        <style>
+            body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+            nav { background-color: #333; color: white; padding: 10px; }
+            nav a { color: white; margin: 0 15px; text-decoration: none; }
+            .container { padding: 20px; }
+            .button { padding: 10px 20px; margin: 5px; text-decoration: none; color: white; background-color: #007BFF; border: none; border-radius: 5px; }
+            .button:hover { background-color: #0056b3; }
+            .image { max-width: 100%; height: auto; }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+        <div class="container">
+            <h1>Welcome to the Home Page</h1>
+            <p>This is the main page of our website. Below you can find some information, an image, buttons, a list, and a form.</p>
+            <img src="image.jpg" alt="Sample Image" class="image">
+            <button class="button">Button 1</button>
+            <button class="button">Button 2</button>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+                <li>Item 3</li>
+            </ul>
+            <form action="submit.html" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" placeholder="Enter your age"><br><br>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea><br><br>
+                <button type="submit" class="button">Submit</button>
+            </form>
+        </div>
+    </body>
+</html>
