@@ -1,0 +1,49 @@
+/* პარაგრაფი 1 */
+#para1 {
+    color: rgb(255, 0, 0); /* წითელი ტექსტი */
+    background-color: rgb(255, 255, 255); /* თეთრი ფონდი */
+    font-size: 20px; /* ტექსტის ზომა */
+    line-height: 1.6; /* ხაზების间 დისტანცია */
+    padding: 10px; /* padding */
+    margin: 15px 0; /* ზევით და ქვემოთ სივრცე */
+}
+
+/* პარაგრაფი 2 */
+#para2 {
+    color: rgb(0, 128, 0); /* მწვანე ტექსტი */
+    background-color: rgb(240, 240, 240); /* ღია ნაცრისფერი ფონდი */
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 12px;
+    margin: 15px 0;
+}
+
+/* პარაგრაფი 3 */
+#para3 {
+    color: rgb(0, 0, 255); /* ლურჯი ტექსტი */
+    background-color: rgb(255, 255, 0); /* ყვითელი ფონდი */
+    font-size: 22px;
+    line-height: 2;
+    padding: 15px;
+    margin: 15px 0;
+}
+
+/* პარაგრაფი 4 */
+#para4 {
+    color: rgb(255, 165, 0); /* ნარინჯისფერი ტექსტი */
+    background-color: rgb(0, 0, 0); /* შავი ფონდი */
+    font-size: 19px;
+    line-height: 1.7;
+    padding: 14px;
+    margin: 15px 0;
+}
+
+/* პარაგრაფი 5 */
+#para5 {
+    color: rgb(26, 185, 203); /* ღია-ლურჯი ტექსტი */
+    background-color: rgb(0, 0, 139); /* მუქი ლურჯი ფონდი */
+    font-size: 21px;
+    line-height: 1.9;
+    padding: 13px;
+    margin: 15px 0;
+}

@@ -1,0 +1,129 @@
+id და class ატრიბუტები HTML-ში გამოყენებული ნიშნებია, რომლითაც ელემენტებს უნიკალური ან ჯგუფური სახელები ეძლევა. ეს სახელები გამოიყენება CSS-სა და JavaScript-ში, რათა მათ სტილი ან ფუნქციონალი მიენიჭოს.
+
+id:
+
+ნატურალური ფუნქცია: id ატრიბუტი გამოიყენება ელემენტის უნიკალურად დასახელებისთვის. ეს ნიშნავს, რომ თითოეულ HTML დოკუმენტში id უნდა იყოს უნიკალური, ანუ ერთი id არ შეიძლება გამოიყენებოდეს სხვადასხვა ელემენტებზე.
+როდის გამოიყენება: id ატრიბუტი გამოიყენება მაშინ, როდესაც ერთი ელემენტისთვის გვინდა სპეციფიკური სტილი ან ფუნქციონალი შევქმნათ. მაგალითად, თუ გვინდა კონკრეტული პარაგრაფისთვის დავაყენოთ სპეციალური სტილი ან ჩავატაროთ JavaScript-ის ფუნქცია მხოლოდ მასზე.
+მაგალითი: <div id="header">...</div>
+class:
+
+ნატურალური ფუნქცია: class ატრიბუტი საშუალებას გვაძლევს, რომ ერთდროულად რამდენიმე ელემენტს მივანიჭოთ ერთი და იგივე სახელი. ეს ნიშნავს, რომ ერთი და იგივე class შეიძლება რამდენიმე ელემენტზე იქნას გამოყენებული.
+როდის გამოიყენება: class ატრიბუტი გამოიყენება, როდესაც ერთნაირი სტილი ან ფუნქციონალი უნდა მიენიჭოს რამდენიმე ელემენტს. მაგალითად, როდესაც სხვადასხვა პარკეტი ან ბატონი უნდა ჰქონდეს იგივე სტილი.
+მაგალითი: <div class="button">...</div><button class="button">...</button>
+როდის რომელი გამოიყენება:
+
+თუ ელემენტს უნდა ჰქონდეს უნიკალური იდენტიფიკატორი (მაგ. "header", "footer", "main"), მაშინ გამოიყენეთ id.
+თუ ერთსა და იმავე სტილს ან ფუნქციონალს მრავალ ელემენტზე უნდა გააკეთოთ, გამოიყენეთ class.
+
+
+
+
+
+
+
+RGB (Red, Green, Blue) არის ფერის სისტემა, რომელიც გამოიყენება ციფრული გამოსახულებების წარმოსაჩენად. ამ სისტემაში ფერი იქმნება სამი ძირითადი ფერის კომბინაციით: წითელი (Red), მწვანე (Green) და ლურჯი (Blue). თითოეულ ფერს მიცემულია ციფრული მნიშვნელობა, რომელიც აღწერს მისი ინტენსივობას 0-დან 255-მდე (მინიმუმიდან მაქსიმუმამდე).
+
+RGB სისტემა მუშაობს ასე:
+
+0 - აღნიშნავს, რომ ფერი არ არსებობს (მაგ. 0 წითელი, 0 მწვანე, 0 ლურჯი = შავი).
+255 - მაქსიმალური ინტენსივობა (მაგ. 255 წითელი, 255 მწვანე, 255 ლურჯი = თეთრი).
+RGB სისტემიდან ფერის მაგალითები:
+წითელი (Red):
+
+RGB: rgb(255, 0, 0)
+მხოლოდ წითელი ფერი.
+მწვანე (Green):
+
+RGB: rgb(0, 255, 0)
+მხოლოდ მწვანე ფერი.
+ლურჯი (Blue):
+
+RGB: rgb(0, 0, 255)
+მხოლოდ ლურჯი ფერი.
+თეთრი (White):
+
+RGB: rgb(255, 255, 255)
+ყველა ფერის მაქსიმალური ინტენსივობა, რაც თეთრ ფერს ქმნის.
+შავი (Black):
+
+RGB: rgb(0, 0, 0)
+არ არსებობს არცერთი ფერის ინტენსივობა, რაც შავ ფერს ქმნის.
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="site-title">
+        <h1>Welcome to My Website</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" class="nav-link">Home</a></li>
+            <li><a href="#" class="nav-link">About</a></li>
+            <li><a href="#" class="nav-link">Services</a></li>
+            <li><a href="#" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section>
+            <p>This is a regular paragraph with normal text size.</p>
+            <p class="highlight">This is a highlighted paragraph with a different background color.</p>
+            <p>This is another regular paragraph.</p>
+        </section>
+    </main>
+
+    <footer id="site-footer">
+        <p>Copyright © 2025</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Webpage</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <div id="color-box">
+        <p class="color-text">This is the first paragraph with red text.</p>
+        <p class="color-text">This is the second paragraph with green text.</p>
+        <p class="color-text">This is the third paragraph with blue text.</p>
+    </div>
+
+</body>
+</html>

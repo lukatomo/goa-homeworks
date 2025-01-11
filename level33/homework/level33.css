@@ -1,0 +1,95 @@
+html, body {
+    /* Style for the header */
+#site-title {
+    text-align: center;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 20px 0;
+}
+
+/* Style for the navigation links */
+.nav-link {
+    color: #1E90FF; /* Blue color */
+    text-decoration: none;
+    padding: 10px;
+    margin: 5px;
+}
+
+.nav-link:hover {
+    color: #FF6347; /* Change to tomato color on hover */
+}
+
+/* Style for the paragraphs */
+main p {
+    font-size: 16px; /* Default font size */
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Style for the paragraph with the highlight class */
+.highlight {
+    background-color: #FFFF00; /* Yellow background */
+    font-size: 18px; /* Slightly larger font */
+    font-weight: bold;
+}
+
+/* Style for the footer */
+#site-footer {
+    text-align: center;
+    background-color: #333; /* Dark background */
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Style for the div with the id "color-box" */
+#color-box {
+    background-color: rgb(200, 150, 255); /* Light purple background */
+    padding: 20px; /* Padding inside the div */
+    font-size: 18px; /* Font size for the paragraphs inside the div */
+    width: 80%; /* Set the width of the div */
+    margin: 20px auto; /* Center the div horizontally */
+}
+
+/* Style for the paragraphs with the class "color-text" */
+.color-text {
+    padding: 10px; /* Padding inside the paragraph */
+    font-size: 16px; /* Set the font size for the text */
+}
+
+/* Set different text colors using RGB values */
+.color-text:nth-child(1) {
+    color: rgb(255, 100, 100); /* Red text */
+}
+
+.color-text:nth-child(2) {
+    color: rgb(100, 255, 100); /* Green text */
+}
+
+.color-text:nth-child(3) {
+    color: rgb(100, 100, 255); /* Blue text */
+}
