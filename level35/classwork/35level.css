@@ -1,0 +1,60 @@
+#python {
+    background-color: #FF5733;  /* ხორბლის ფერი */
+    color: #FFFFFF;  /* თეთრი ტექსტი */
+}
+
+#html {
+    background-color: #33FF57;  /* მწვანე */
+    color: #FFFFFF;  /* თეთრი ტექსტი */
+}
+
+#css {
+    background-color: #3357FF;  /* ლურჯი */
+    color: #FFFFFF;  /* თეთრი ტექსტი */
+}
+
+#javascript {
+    background-color: #FFFF33;  /* ყვითელი */
+    color: #000000;  /* შავი ტექსტი */
+}
+
+#GOA  {
+    background-color: #FF33A8;  /* ვარდისფერი */
+    color: #FFFFFF;  /* თეთრი ტექსტი */
+}
+
+
+
+
+
+
+
+
+
+#goa{
+    width: 1000px;
+    height: 500px;
+    background-color: #3498db; /* ფონის ფერი */
+    color: #ffffff; /* ტექსტის ფერი */
+    padding: 20px;
+}
+
+
+
+
+
+
+
+
+
+#parentDiv {
+    width: 70vw; /* სიგანე 70% ეკრანის სიგანისგან */
+    height: 600px; /* სიმაღლე 600 პიქსელი */
+    background-color: #2ecc71; /* ფონის ფერი მშობელ დივისთვის */
+}
+
+#childDiv {
+    width: 25%; /* სიგანე მშობელი დივის სიგანის მეოთხედი */
+    height: 10%; /* სიმაღლე 600 პიქსელის 10% */
+    background-color: #e74c3c; /* ფონის ფერი შვილობილი დივისთვის */
+}
