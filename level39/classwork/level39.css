@@ -1,0 +1,10 @@
+/* ტექსტი სტილიზაცია პარაგრაფისთვის */
+#myParagraph {
+    font-family: Arial, sans-serif; /* დეფოლტი ფონტი */
+    transition: font-family 0.3s ease; /* სლიმი გადამეტება */
+}
+
+/* როდესაც hover ხდება პარაგრაფზე */
+#myParagraph:hover {
+    font-family: 'Roboto', sans-serif; /* აირჩეული ფონტი */
+}
