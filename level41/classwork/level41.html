@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>დაუდაბლებული სია</title>
+    <style>
+        ul {
+            list-style-type: none;
+        }
+        ul > li:first-child, ul > li:last-child {
+            list-style-type: georgian;
+            list-style-position: inside;
+        }
+        ul > li:nth-child(odd) {
+            list-style-type: lower-roman;
+            list-style-position: outside;
+        }
+        ul > li:nth-child(even) {
+            list-style-type: lower-greek;
+            list-style-position: inside;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+        <li>13</li>
+        <li>14</li>
+        <li>15</li>
+        <li>16</li>
+        <li>17</li>
+        <li>18</li>
+        <li>19</li>
+        <li>20</li>
+    </ul>
+</body>
+</html>
+
+
+ამ სიის სტილები შემდეგნაირად მუშაობს:
+
+პირველი და ბოლო ელემენტების მარკერი არის "georgian" და მისი პოზიცია არის "inside".
+ყველა კენტი ელემენტის მარკერი არის "lower-roman" და პოზიცია არის "outside".
+ყველა ლუწი ელემენტის მარკერი არის "lower-greek" და მისი პოზიცია არის "inside".
