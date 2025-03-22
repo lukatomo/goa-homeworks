@@ -1,0 +1,165 @@
+2) Round the Corners of a Box
+css
+Copy
+Edit
+.box {
+  width: 200px;
+  height: 100px;
+  background-color: lightblue;
+  border-radius: 15px;
+}
+html
+Copy
+Edit
+<div class="box"></div>
+3) Add Margins Around a Paragraph
+css
+Copy
+Edit
+p {
+  margin: 20px;
+}
+html
+Copy
+Edit
+<p>This paragraph has a margin around it.</p>
+4) Create a Button with Padding and Border
+css
+Copy
+Edit
+.button {
+  padding: 10px 20px;
+  border: 2px solid black;
+  background-color: lightgray;
+  cursor: pointer;
+}
+html
+Copy
+Edit
+<button class="button">Click Me</button>
+5) Make a Box with a Shadowed Border
+css
+Copy
+Edit
+.shadow-box {
+  width: 200px;
+  height: 100px;
+  background-color: white;
+  border: 2px solid gray;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+}
+html
+Copy
+Edit
+<div class="shadow-box"></div>
+6) Adjust Margin Between List Items
+css
+Copy
+Edit
+li {
+  margin-bottom: 10px;
+}
+html
+Copy
+Edit
+<ul>
+  <li>Item 1</li>
+  <li>Item 2</li>
+  <li>Item 3</li>
+</ul>
+7) Use Negative Margins
+css
+Copy
+Edit
+.negative-margin {
+  margin-top: -20px;
+  background-color: yellow;
+}
+html
+Copy
+Edit
+<div>Normal Element</div>
+<div class="negative-margin">Moved Up with Negative Margin</div>
+8) Flexbox - Explanation
+Flexbox (Flexible Box Layout) არის CSS განლაგების მოდელი, რომელიც გამოიყენება ელემენტების დინამიური განლაგებისთვის.
+იგი განსაკუთრებით გამოსადეგია:
+
+ელემენტების ჰორიზონტალური ან ვერტიკალური ცენტრში მოსათავსებლად.
+
+ცვალებადი სიგანის/სიმაღლის ელემენტების გასწორებისთვის.
+
+ელემენტების თანაბრად გადანაწილებისთვის კონტეინერში.
+
+როდის ვიყენებთ Flexbox-ს?
+
+როდესაც გვინდა ელემენტები ერთ მწკრივში ან სვეტში სწორად გავანაწილოთ.
+
+როდესაც საჭიროა ელემენტები დინამიურად და ადვილად დაალაგოთ.
+
+როდესაც გვჭირდება რესპონსიური (Adaptive) დიზაინი.
+
+9) ნახაზი და ახსნა (display, justify-content, align-items)
+გაგიწვდით ახსნას და მოკლე ASCII დიაგრამას:
+
+display: განსაზღვრავს, როგორ უნდა გამოჩნდეს ელემენტი.
+
+css
+Copy
+Edit
+display: flex; /* ჩართავს flexbox მოდელს */
+justify-content: ადგენს, როგორ უნდა განლაგდეს ელემენტები მთავარ ღერძზე (ხშირად ჰორიზონტალურად).
+
+css
+Copy
+Edit
+justify-content: center; /* ცენტრში */
+justify-content: space-between; /* შუალედური ადგილი */
+align-items: განსაზღვრავს, როგორ განლაგდეს ელემენტები მეორე ღერძზე (ხშირად ვერტიკალურად).
+
+css
+Copy
+Edit
+align-items: center; /* ცენტრში */
+ASCII ნახაზი Flexbox-სთვის
+
+markdown
+Copy
+Edit
+Container (display: flex)
+---------------------------------
+| Item 1   Item 2   Item 3     |
+---------------------------------
+justify-content: space-between;
+
+---------------------------------
+|    Item 1   Item 2   Item 3  |
+---------------------------------
+justify-content: center;
+
+---------------------------------
+|   Item 1   |
+|   Item 2   |
+|   Item 3   |
+---------------------------------
+align-items: center;
+ეს ხელს უწყობს ელემენტების სწორად განლაგებას, რაც ადვილია CSS-ით. 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layout Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>Header</header>
+    <main class="container">
+        <article>Article</article>
+        <aside>Aside</aside>
+        <nav>Nav</nav>
+    </main>
+    <footer>Footer</footer>
+</body>
+</html>
