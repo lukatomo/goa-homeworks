@@ -1,0 +1,106 @@
+/* 1. Hover Button */
+.hover-button {
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .hover-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* 2. Link Transition */
+  .hover-link {
+    color: #2c3e50;
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  .hover-link:hover {
+    color: #e74c3c;
+  }
+  
+  /* 3. Image Scaling */
+  .hover-image {
+    width: 150px;
+    transition: transform 0.3s ease;
+  }
+  .hover-image:hover {
+    transform: scale(1.1);
+  }
+  
+  /* 4. Paragraph Text Hover */
+  .hover-text {
+    color: #333;
+    transition: color 0.5s ease;
+  }
+  .hover-text:hover {
+    color: #8e44ad;
+  }
+  
+  /* 5. Border Animation */
+  .hover-border {
+    padding: 20px;
+    border: 2px solid #999;
+    transition: border-width 0.3s ease;
+  }
+  .hover-border:hover {
+    border-width: 5px;
+  }
+  
+  /* 6. Button Press (Click) */
+  .press-button {
+    padding: 10px 20px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.1s ease;
+  }
+  .press-button:active {
+    transform: scale(0.95);
+  }
+  
+  /* 7. Opacity Transition */
+  .fade-box {
+    background-color: #bdc3c7;
+    padding: 20px;
+    transition: opacity 0.4s ease;
+  }
+  .fade-box:hover {
+    opacity: 0.5;
+  }
+  
+  /* 8. Padding Animation */
+  .padding-box {
+    background-color: #ecf0f1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    transition: padding 0.3s ease;
+  }
+  .padding-box:hover {
+    padding: 40px;
+  }
+  
+  /* 9. Rotation Effect */
+  .rotate-icon {
+    display: inline-block;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+  }
+  .rotate-icon:hover {
+    transform: rotate(15deg);
+  }
+  
+  /* 10. Shadow Animation */
+  .shadow-card {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+  }
+  .shadow-card:hover {
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+  }
+  
