@@ -1,0 +1,102 @@
+@keyframes moveRight {
+    from { transform: translateX(0); }
+    to { transform: translateX(200px); }
+  }
+  
+  .box {
+    animation: moveRight 2s linear;
+  }
+
+ 
+  @keyframes colorChange {
+    from { background-color: blue; }
+    to { background-color: red; }
+  }
+  
+  .bg-box {
+    animation: colorChange 5s forwards;
+  }
+
+
+  @keyframes rotate360 {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .spinner {
+    animation: rotate360 2s linear;
+  }
+
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+  
+  .pulse {
+    animation: pulse 1s ease-in-out infinite;
+  }
+
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-100px); }
+  }
+  
+  .ball {
+    animation: bounce 1s ease-in-out 3;
+  }
+ 
+
+  .loader {
+    animation: rotate360 1s linear infinite;
+  }
+
+
+  .one-time {
+    animation: fadeOut 3s forwards;
+  }
+  
+  @keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+  }
+
+
+ 
+  .looping {
+    animation: pulse 2s infinite;
+  }
+  
+  .one-time {
+    animation: pulse 2s forwards;
+  }
+  
+  /* Toggle between `.looping` and `.one-time` using JavaScript */
+
+
+  .delayed {
+    animation: moveRight 2s linear;
+    animation-delay: 2s;
+    animation-fill-mode: both;
+  }
+
+
+  
+  .seq1, .seq2, .seq3 {
+    animation: fadeIn 1s forwards;
+  }
+  
+  .seq1 { animation-delay: 0s; }
+  .seq2 { animation-delay: 1s; }
+  .seq3 { animation-delay: 2s; }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+
+  .fade {
+    animation: fadeOut 10s ease-in-out forwards;
+  }

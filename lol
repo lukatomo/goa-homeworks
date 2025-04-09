@@ -1,0 +1,1 @@
+_G.Mode = "Eng" loadstring(game:HttpGet("https://raw.githubusercontent.com/AAwful/VectorHub/main/Loader.lua"))()
