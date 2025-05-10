@@ -1,0 +1,109 @@
+/* .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    padding: 10px;
+    border: 2px dashed gray;
+    width: 300px;
+    margin: 40px auto;
+  }
+  
+  .grid-item {
+    background-color: orange;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.2em;
+  }
+  
+  განსაზღვრული სიგრძე / სიმაღლე
+  .tall {
+    grid-row: span 2;
+  }
+  
+  .wide {
+    grid-column: span 2;
+  } */
+/*     
+  .grid-container {
+    display: grid;
+    grid-template-areas:
+      "header header header"
+      "article nav ads"
+      "footer footer footer";
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 10px;
+    height: 100vh;
+    padding: 10px;
+    background: white;
+  }
+  
+  header, article, nav, aside, footer {
+    background-color: yellow;
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  
+  /* პოზიციონირება grid area-ებით */
+  /* header {
+    grid-area: header;
+  }
+  
+  article {
+    grid-area: article;
+  }
+  
+  nav {
+    grid-area: nav;
+  }
+  
+  aside {
+    grid-area: ads;
+  }
+  
+  footer {
+    grid-area: footer;
+  }
+   */ 
+   .grid-container {
+    /* display: grid;
+    grid-template-areas:
+      "header header header"
+      "article nav ads"
+      "footer footer footer";
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 10px;
+    padding: 10px;
+    height: 100vh;
+    background: white;
+  }
+  
+  header, article, nav, aside, footer {
+    background-color: #9acd32; /* მწვანე ფერი */
+    padding: 20px;
+    font-family: sans-serif;
+  }
+  
+  /* Grid areas */
+  /* header { grid-area: header; }
+  article { grid-area: article; }
+  nav { grid-area: nav; }
+  aside { grid-area: ads; }
+  footer { grid-area: footer; }
+  
+  /*  RESPONSIVE შეცვლა მობილურზე */
+  /* @media (max-width: 768px) {
+    .grid-container {
+      grid-template-areas:
+        "nav"
+        "header"
+        "article"
+        "ads"
+        "footer";
+      grid-template-columns: 1fr;
+    }
+  }  */
+
+  

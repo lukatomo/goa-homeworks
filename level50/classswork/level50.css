@@ -1,0 +1,21 @@
+body {
+    margin: 0;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+  }
+  
+  p {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+    word-wrap: break-word;
+  }
+  
+  @media (max-width: 600px) {
+    p {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+  

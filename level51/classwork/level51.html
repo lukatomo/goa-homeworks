@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>სურათების დავალება</title>
+  <style>
+    img {
+      width: 200px;
+      height: auto;
+      cursor: pointer;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>დააკლიკე სურათებზე</h2>
+
+  <!-- პირველი სურათი -->
+  <img src="/goa.jfif" alt="სურათი 1" onclick="showName()">
+
+  <!-- მეორე სურათი -->
+  <img id="secondImage" src="/lol.jfif" alt="სურათი 2" onclick="changeImage()">
+
+  <script>
+    function showName() {
+      alert("თქვენი სახელი და გვარი:ლუკა ტომოშევსკი");
+    }
+
+    function changeImage() {
+      document.getElementById("secondImage").src = "/ok.jfif";
+    }
+  </script>
+
+</body>
+</html>
