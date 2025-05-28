@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ფორმის მაგალითი</title>
+</head>
+<body>
+
+  <form id="myForm">
+    <label for="name">სახელი:</label>
+    <input type="text" id="name" name="name"><br><br>
+
+    <label for="email">ელ-ფოსტა:</label>
+    <input type="email" id="email" name="email"><br><br>
+
+    <label for="message">შეტყობინება:</label>
+    <input type="text" id="message" name="message"><br><br>
+
+    <button type="submit">გაგზავნა</button>
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(e) {
+      e.preventDefault(); // გვერდი არ განახლდეს
+
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      console.log("სახელი:", name);
+      console.log("ელ-ფოსტა:", email);
+      console.log("შეტყობინება:", message);
+    });
+  </script>
+
+</body>
+</html>

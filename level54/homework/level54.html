@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Web Page</title>
+</head>
+<body>
+
+  <p id="messageParagraph">ეს ტექსტი მალე შეიცვლება...</p>
+
+  <script>
+    // 2) მომხმარებლის საყვარელი ჰობის მოთხოვნა და გამოჩენა alert-ით
+    let hobby = prompt("What is your favorite hobby?");
+    alert("Your favorite hobby is: " + hobby);
+
+    // 3) მომხმარებლის სახელი და გვარის მოთხოვნა, შერწყმა და გამოჩენა alert-ით
+    let firstName = prompt("Enter your first name:");
+    let lastName = prompt("Enter your last name:");
+    let fullName = firstName + " " + lastName;
+    alert("Your full name is: " + fullName);
+
+    // 4) მომხმარებლის შეტყობინების მოთხოვნა და <p> ელემენტის ტექსტის შეცვლა
+    let userMessage = prompt("Enter a message to display:");
+    let paragraph = document.getElementById("messageParagraph");
+    paragraph.textContent = userMessage;
+
+    // 5) საყვარელი ემოჯის მოთხოვნა და alert-ით მადლობა შეტყობინების გამოჩენა
+    let emoji = prompt("What is your favorite emoji?");
+    alert("Thanks! Your favorite emoji is: " + emoji + " 😊");
+
+    // დამატებით: სიტყვის მოთხოვნა და საიტის სათაურის შეცვლა
+    let newTitle = prompt("Enter a word to set as the page title:");
+    document.title = newTitle;
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Forms Example</title>
+</head>
+<body>
+
+  <!-- 6) ტექსტური ველი და ღილაკი - alert-ზე ჩვენება -->
+  <h3>6. Text Input to Alert</h3>
+  <form id="textForm">
+    <input type="text" id="textInput" placeholder="Enter something..." />
+    <button type="button" onclick="showAlert()">Show Alert</button>
+  </form>
+
+  <!-- 7) ფერის არჩევა და გვერდის ფონის შეცვლა -->
+  <h3>7. Pick a Color</h3>
+  <form id="colorForm">
+    <input type="color" id="colorPicker" />
+    <button type="submit">Change Background</button>
+  </form>
+
+  <!-- 8) ორი ტექსტური ველი და ღილაკი - h1-ში ჩვენება -->
+  <h3>8. Combine First and Last Name</h3>
+  <form id="nameForm">
+    <input type="text" id="firstName" placeholder="First Name" />
+    <input type="text" id="lastName" placeholder="Last Name" />
+    <button type="button" onclick="displayFullName()">Show Full Name</button>
+  </form>
+  <h1 id="fullNameHeading">Your full name will appear here</h1>
+
+  <script>
+    // 6) Alert with input value
+    function showAlert() {
+      let value = document.getElementById("textInput").value;
+      alert("You entered: " + value);
+    }
+
+    // 7) Change background color on submit
+    document.getElementById("colorForm").addEventListener("submit", function(e) {
+      e.preventDefault(); // არატვირთოს გვერდი თავიდან
+      let color = document.getElementById("colorPicker").value;
+      document.body.style.backgroundColor = color;
+    });
+
+    // 8) Show full name in <h1>
+    function displayFullName() {
+      let first = document.getElementById("firstName").value;
+      let last = document.getElementById("lastName").value;
+      let fullName = first + " " + last;
+      document.getElementById("fullNameHeading").textContent = fullName;
+    }
+  </script>
+
+</body>
+</html>

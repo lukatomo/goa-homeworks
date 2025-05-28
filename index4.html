@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Simple 2D Shooter</title>
+<style>
+  body { margin: 0; overflow: hidden; background: #222; }
+  canvas { display: block; margin: 0 auto; background: #444; }
+  #score { color: white; font-family: monospace; text-align: center; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<canvas id="game" width="600" height="400"></canvas>
+<div id="score">Score: 0</div>
+
+<script>
+(() => {
+  const canvas = document.getElementById('game');
+  const ctx = canvas.getContext('2d');
+
+  // მოთამაშე
+  const player = {
+    x: 50,
+    y: canvas.height / 2 - 20,
+    width: 40,
+    height: 40,
+    speed: 4,
+    dy: 0,
+    color: 'cyan',
+  };
+
+  // მტრები (მარტივი)
+  const enemies = [];
+
+  // ტყვიები
+  const bullets = [];
+
+  // ქულა
+  let score = 0;
+
+  // კლავიატურის მართვა
+  const keys = {
+    up: false,
+    down: false,
+    space: false,
+  };
+
+  // ტყვიის სიჩქარე
+  const bulletSpeed = 8;
+
+  // დრო ბოლო გასროლის
+  let lastShotTime = 0;
+  const shotCooldown = 300; // მილი წამის
+
+  // მოწინააღმდეგის ჩასმა
+  function spawnEnemy() {
+    const size = 30;
+    enemies.push({
+      x: canvas.width,
+      y: Math.random() * (canvas.height - size),
+      width: size,
+      height: size,
+      speed: 2 + Math.random() * 2,
+      color: 'red',
+    });
+  }
+
+  // ჰიტბოქსის შემოწმება
+  function isColliding(a, b) {
+    return (
+      a.x < b.x + b.width &&
+      a.x + a.width > b.x &&
+      a.y < b.y + b.height &&
+      a.y + a.height > b.y
+    );
+  }
+
+  // ტყვიის დამატება
+  function shoot() {
+    const now = Date.now();
+    if(now - lastShotTime > shotCooldown){
+      bullets.push({
+        x: player.x + player.width,
+        y: player.y + player.height / 2 - 5,
+        width: 10,
+        height: 10,
+        speed: bulletSpeed,
+        color: 'yellow',
+      });
+      lastShotTime = now;
+    }
+  }
+
+  // მთავარი ლუპი
+  function update() {
+    // მოთამაშის მოძრაობა
+    if(keys.up && player.y > 0) player.y -= player.speed;
+    if(keys.down && player.y + player.height < canvas.height) player.y += player.speed;
+
+    // გასროლის მართვა
+    if(keys.space) shoot();
+
+    // ტყვიების მოძრაობა
+    for(let i = bullets.length - 1; i >= 0; i--) {
+      bullets[i].x += bullets[i].speed;
+      if(bullets[i].x > canvas.width){
+        bullets.splice(i,1);
+        continue;
+      }
+
+      // დარტყმა მტრებს
+      for(let j = enemies.length -1; j >=0; j--){
+        if(isColliding(bullets[i], enemies[j])){
+          enemies.splice(j,1);
+          bullets.splice(i,1);
+          score += 10;
+          document.getElementById('score').textContent = 'Score: ' + score;
+          break;
+        }
+      }
+    }
+
+    // მტრების მოძრაობა და თამაში დასრულების შემოწმება
+    for(let i = enemies.length -1; i >= 0; i--){
+      enemies[i].x -= enemies[i].speed;
+      if(enemies[i].x + enemies[i].width < 0){
+        enemies.splice(i,1);
+        // თუ მტერი გავიდა - წაგება
+        alert('Game Over! Final score: ' + score);
+        // თამაშის რესტარტი
+        score = 0;
+        enemies.length = 0;
+        bullets.length = 0;
+        player.y = canvas.height / 2 - 20;
+        document.getElementById('score').textContent = 'Score: 0';
+        return;
+      }
+    }
+
+    // ახალი მტრის დამატება დროულად (შესაძლოა შეზღუდო)
+    if(Math.random() < 0.02) spawnEnemy();
+  }
+
+  // ხატვა
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // მოთამაშე
+    ctx.fillStyle = player.color;
+    ctx.fillRect(player.x, player.y, player.width, player.height);
+
+    // მტრები
+    enemies.forEach(e => {
+      ctx.fillStyle = e.color;
+      ctx.fillRect(e.x, e.y, e.width, e.height);
+    });
+
+    // ტყვიები
+    bullets.forEach(b => {
+      ctx.fillStyle = b.color;
+      ctx.fillRect(b.x, b.y, b.width, b.height);
+    });
+  }
+
+  // მთავარი ციკლი
+  function gameLoop() {
+    update();
+    draw();
+    requestAnimationFrame(gameLoop);
+  }
+
+  // კლავიატურის ჰენდლერები
+  window.addEventListener('keydown', e => {
+    if(e.code === 'ArrowUp') keys.up = true;
+    if(e.code === 'ArrowDown') keys.down = true;
+    if(e.code === 'Space') keys.space = true;
+  });
+  window.addEventListener('keyup', e => {
+    if(e.code === 'ArrowUp') keys.up = false;
+    if(e.code === 'ArrowDown') keys.down = false;
+    if(e.code === 'Space') keys.space = false;
+  });
+
+  // დავიწყოთ თამაში
+  gameLoop();
+})();
+</script>
+
+</body>
+</html>

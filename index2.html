@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple 2-Player Brawl</title>
+<style>
+  body {
+    margin: 0;
+    background: #222;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    user-select: none;
+  }
+  #game {
+    position: relative;
+    margin: 20px auto;
+    width: 800px;
+    height: 500px;
+    background: #444;
+    border: 3px solid #555;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .player {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  #player1 {
+    background: #3498db;
+    left: 50px;
+    top: 225px;
+  }
+  #player2 {
+    background: #e74c3c;
+    left: 700px;
+    top: 225px;
+  }
+  .bullet {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: yellow;
+  }
+  #info {
+    text-align: center;
+    color: white;
+    margin-top: 10px;
+  }
+  #winner {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    color: lime;
+    display: none;
+    background: rgba(0,0,0,0.7);
+    padding: 20px 40px;
+    border-radius: 15px;
+    z-index: 1000;
+  }
+  #restartBtn {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    display: none;
+    z-index: 1000;
+  }
+</style>
+</head>
+<body>
+
+<div id="game">
+  <div id="player1" class="player"></div>
+  <div id="player2" class="player"></div>
+  <div id="winner"></div>
+  <button id="restartBtn">Restart</button>
+</div>
+<div id="info">
+  <p>Player 1 (Blue): Move with WASD, Shoot: Space</p>
+  <p>Player 2 (Red): Move with Arrow Keys, Shoot: Enter</p>
+</div>
+
+<script>
+  const game = document.getElementById('game');
+  const player1 = document.getElementById('player1');
+  const player2 = document.getElementById('player2');
+  const winnerText = document.getElementById('winner');
+  const restartBtn = document.getElementById('restartBtn');
+
+  const gameWidth = game.clientWidth;
+  const gameHeight = game.clientHeight;
+
+  const playerSize = 50;
+  const bulletSize = 15;
+  const bulletSpeed = 8;
+  const playerSpeed = 5;
+
+  let p1 = { x: 50, y: 225, hp: 5, bullets: [] };
+  let p2 = { x: 700, y: 225, hp: 5, bullets: [] };
+
+  let keys = {};
+
+  let gameOver = false;
+
+  window.addEventListener('keydown', e => {
+    keys[e.key.toLowerCase()] = true;
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+    }
+  });
+  window.addEventListener('keyup', e => {
+    keys[e.key.toLowerCase()] = false;
+  });
+
+  function shoot(player, dirX, dirY) {
+    if (gameOver) return;
+    // bullet starts from center of player
+    const bullet = {
+      x: player.x + playerSize/2 - bulletSize/2,
+      y: player.y + playerSize/2 - bulletSize/2,
+      dirX,
+      dirY,
+      owner: player
+    };
+    player.bullets.push(bullet);
+
+    // create bullet element
+    const bulletEl = document.createElement('div');
+    bulletEl.classList.add('bullet');
+    bulletEl.style.left = bullet.x + 'px';
+    bulletEl.style.top = bullet.y + 'px';
+    bullet.el = bulletEl;
+    game.appendChild(bulletEl);
+  }
+
+  function updatePlayerPosition(player, leftKey, upKey, rightKey, downKey) {
+    if (keys[leftKey] && player.x > 0) player.x -= playerSpeed;
+    if (keys[rightKey] && player.x < gameWidth - playerSize) player.x += playerSpeed;
+    if (keys[upKey] && player.y > 0) player.y -= playerSpeed;
+    if (keys[downKey] && player.y < gameHeight - playerSize) player.y += playerSpeed;
+  }
+
+  function update() {
+    if (gameOver) return;
+
+    // Player 1 movement WASD
+    updatePlayerPosition(p1, 'a', 'w', 'd', 's');
+    // Player 2 movement arrows
+    updatePlayerPosition(p2, 'arrowleft', 'arrowup', 'arrowright', 'arrowdown');
+
+    // Shoot handling
+    if (keys[' ']) { // space for p1 shoot - shoot right direction only for simplicity
+      if (!p1.lastShoot || Date.now() - p1.lastShoot > 400) {
+        shoot(p1, 1, 0);
+        p1.lastShoot = Date.now();
+      }
+    }
+    if (keys['enter']) { // enter for p2 shoot - shoot left direction only
+      if (!p2.lastShoot || Date.now() - p2.lastShoot > 400) {
+        shoot(p2, -1, 0);
+        p2.lastShoot = Date.now();
+      }
+    }
+
+    // Update bullets for both players
+    updateBullets(p1, p2);
+    updateBullets(p2, p1);
+
+    // Update player positions on screen
+    player1.style.left = p1.x + 'px';
+    player1.style.top = p1.y + 'px';
+
+    player2.style.left = p2.x + 'px';
+    player2.style.top = p2.y + 'px';
+
+    requestAnimationFrame(update);
+  }
+
+  function updateBullets(shooter, target) {
+    for (let i = shooter.bullets.length -1; i >= 0; i--) {
+      const b = shooter.bullets[i];
+      b.x += b.dirX * bulletSpeed;
+      b.y += b.dirY * bulletSpeed;
+      if (b.el) {
+        b.el.style.left = b.x + 'px';
+        b.el.style.top = b.y + 'px';
+      }
+
+      // bullet out of bounds
+      if (b.x < 0 || b.x > gameWidth || b.y < 0 || b.y > gameHeight) {
+        if (b.el) game.removeChild(b.el);
+        shooter.bullets.splice(i, 1);
+        continue;
+      }
+
+      // bullet hits target
+      if (
+        b.x + bulletSize > target.x &&
+        b.x < target.x + playerSize &&
+        b.y + bulletSize > target.y &&
+        b.y < target.y + playerSize
+      ) {
+        if (b.el) game.removeChild(b.el);
+        shooter.bullets.splice(i, 1);
+        target.hp--;
+        if (target === p1) updatePlayerColor(player1, target.hp);
+        else updatePlayerColor(player2, target.hp);
+
+        if (target.hp <= 0) {
+          endGame(shooter === p1 ? 'Player 1 (Blue)' : 'Player 2 (Red)');
+        }
+      }
+    }
+  }
+
+  function updatePlayerColor(playerEl, hp) {
+    // change opacity to show damage
+    playerEl.style.opacity = hp / 5;
+  }
+
+  function endGame(winner) {
+    gameOver = true;
+    winnerText.textContent = winner + ' Wins!';
+    winnerText.style.display = 'block';
+    restartBtn.style.display = 'block';
+  }
+
+  restartBtn.addEventListener('click', () => {
+    // reset game
+    p1 = { x: 50, y: 225, hp: 5, bullets: [] };
+    p2 = { x: 700, y: 225, hp: 5, bullets: [] };
+    keys = {};
+    gameOver = false;
+    winnerText.style.display = 'none';
+    restartBtn.style.display = 'none';
+
+    // clear bullets
+    document.querySelectorAll('.bullet').forEach(b => b.remove());
+
+    // reset player colors
+    player1.style.opacity = 1;
+    player2.style.opacity = 1;
+
+    update();
+  });
+
+  update();
+</script>
+
+</body>
+</html>

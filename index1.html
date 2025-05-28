@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Simple Block Blast</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #222;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: white;
+    user-select: none;
+  }
+  #game {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 2px;
+    background: #111;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .block {
+    width: 50px;
+    height: 50px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+  .block:hover {
+    transform: scale(1.1);
+  }
+  #score {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 24px;
+    color: #0f0;
+  }
+</style>
+</head>
+<body>
+
+<div id="score">Score: 0</div>
+<div id="game"></div>
+
+<script>
+  const game = document.getElementById('game');
+  const scoreDisplay = document.getElementById('score');
+
+  const rows = 8;
+  const cols = 8;
+  const colors = ['#e74c3c', '#3498db', '#2ecc71', '#f1c40f', '#9b59b6'];
+
+  let grid = [];
+  let score = 0;
+
+  function createGrid() {
+    grid = [];
+    game.innerHTML = '';
+    for(let r = 0; r < rows; r++) {
+      grid[r] = [];
+      for(let c = 0; c < cols; c++) {
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        grid[r][c] = color;
+
+        const block = document.createElement('div');
+        block.classList.add('block');
+        block.style.backgroundColor = color;
+        block.dataset.row = r;
+        block.dataset.col = c;
+        block.addEventListener('click', () => handleClick(r, c));
+        game.appendChild(block);
+      }
+    }
+  }
+
+  function handleClick(r, c) {
+    const targetColor = grid[r][c];
+    if (!targetColor) return;
+
+    // ვიპოვოთ ყველა დაკავშირებული მსგავსი ფერის ბლოკი
+    const toRemove = [];
+    const visited = Array(rows).fill(0).map(() => Array(cols).fill(false));
+
+    function dfs(row, col) {
+      if (row < 0 || row >= rows || col < 0 || col >= cols) return;
+      if (visited[row][col]) return;
+      if (grid[row][col] !== targetColor) return;
+      visited[row][col] = true;
+      toRemove.push([row, col]);
+      dfs(row-1, col);
+      dfs(row+1, col);
+      dfs(row, col-1);
+      dfs(row, col+1);
+    }
+
+    dfs(r, c);
+
+    if (toRemove.length < 2) {
+      // თუ მხოლოდ 1 ბლოკია, არ ვაფეთქებთ
+      return;
+    }
+
+    // წავშალოთ ბლოკები
+    for (const [row, col] of toRemove) {
+      grid[row][col] = null;
+    }
+
+    // ქულა და განახლება
+    score += toRemove.length;
+    scoreDisplay.textContent = 'Score: ' + score;
+
+    applyGravity();
+    updateGrid();
+  }
+
+  function applyGravity() {
+    // დავნაწევროთ ბლოკები ქვემოთ
+    for(let c = 0; c < cols; c++) {
+      let emptySlots = 0;
+      for(let r = rows - 1; r >= 0; r--) {
+        if (grid[r][c] === null) {
+          emptySlots++;
+        } else if (emptySlots > 0) {
+          grid[r + emptySlots][c] = grid[r][c];
+          grid[r][c] = null;
+        }
+      }
+    }
+  }
+
+  function updateGrid() {
+    for(let r = 0; r < rows; r++) {
+      for(let c = 0; c < cols; c++) {
+        const idx = r * cols + c;
+        const block = game.children[idx];
+        if (grid[r][c]) {
+          block.style.backgroundColor = grid[r][c];
+          block.style.visibility = 'visible';
+        } else {
+          block.style.visibility = 'hidden';
+        }
+      }
+    }
+  }
+
+  createGrid();
+</script>
+
+</body>
+</html>
