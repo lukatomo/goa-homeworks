@@ -1,6 +1,6 @@
 import turtle 
 
-turtle.speed(100)
+turtle.speed(0)
 turtle.bgcolor('black')
 turtle.pensize(3)
 def func():

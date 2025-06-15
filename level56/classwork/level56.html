@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>საკლასო ფორმა</title>
+</head>
+<body>
+
+  <form id="myForm">
+    <input type="text" name="name" placeholder="სახელი"><br>
+    <input type="email" name="email" placeholder="ელ. ფოსტა"><br>
+    <input type="number" name="age" placeholder="ასაკი"><br>
+    <input type="text" name="city" placeholder="ქალაქი"><br>
+    <button type="submit">დადასტურება</button>
+  </form>
+
+  <script>
+    const form = document.getElementById("myForm");
+
+    form.addEventListener("submit", function(event) {
+      event.preventDefault(); // არ დარეფრეშდეს გვერდი
+
+      // მნიშვნელობების წამოღება name-ის მიხედვით
+      const name = form.elements["name"].value;
+      const email = form.elements["email"].value;
+      const age = form.elements["age"].value;
+      const city = form.elements["city"].value;
+
+      // შეგიძლია აქ გააკეთო რამე ამ მონაცემებით, მაგ: console.log
+      console.log("სახელი:", name);
+      console.log("ელფოსტა:", email);
+      console.log("ასაკი:", age);
+      console.log("ქალაქი:", city);
+
+      // ფორმის გასუფთავება
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>

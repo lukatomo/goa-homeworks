@@ -1,0 +1,78 @@
+<!-- 2-6 -->
+<script>   
+// Check if Two Numbers Are Equal
+let num1 = 10;
+let num2 = 10;
+console.log("Are equal:", num1 == num2); // true
+
+// Check if a Number is Greater Than Another Number
+let a = 15;
+let b = 10;
+console.log("Is greater:", a > b); // true
+
+// Check if a Number is Less Than or Equal to Another Number
+let x = 8;
+let y = 12;
+console.log("Is less or equal:", x <= y); // true
+
+// Check if Two Numbers Are Not Equal
+let m = 5;
+let n = 9;
+console.log("Are not equal:", m != n); // true
+
+// Check if a Number is Greater Than or Equal to 100
+let score = 120;
+console.log("Is ≥ 100:", score >= 100); // true
+</script>
+
+<!-- 7-9 -->
+<button onclick="showConfirm()">Click me for confirm</button>
+
+<script>
+// Show a confirm box asking a question
+let result1 = confirm("Do you want to continue?");
+console.log("Confirm result:", result1);
+
+// Show a confirm box when a button is clicked
+function showConfirm() {
+  let result2 = confirm("Are you sure?");
+  console.log("Clicked confirm:", result2);
+}
+
+// Display a confirm box on page load
+window.onload = function() {
+  let result3 = confirm("This page uses cookies. Accept?");
+  alert("You chose: " + result3);
+};
+</script>
+
+<!-- 10-12 -->
+<form id="myForm">
+  <input type="text" name="username" placeholder="Username">
+  <input type="email" name="email" placeholder="Email">
+  <input type="text" name="phone" placeholder="Phone"><br><br>
+  <button type="submit">Submit</button>
+</form>
+
+<button onclick="clearEmail()">Clear Email</button>
+<button onclick="alertPhone()">Show Phone</button>
+
+<script>
+// On form submit, log username value
+document.getElementById("myForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  let username = document.querySelector('input[name="username"]').value;
+  console.log("Username:", username);
+});
+
+// On button click, clear email input
+function clearEmail() {
+  document.querySelector('input[name="email"]').value = "";
+}
+
+// On button click, alert phone input value
+function alertPhone() {
+  let phone = document.querySelector('input[name="phone"]').value;
+  alert("Phone: " + phone);
+}
+</script>
