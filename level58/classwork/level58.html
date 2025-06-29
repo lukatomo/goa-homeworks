@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Discount Function</title>
+</head>
+<body>
+
+  <button onclick="discountFunc()">გაიგე შენი ფასდაკლება</button>
+
+  <script>
+    function discountFunc() {
+      let ageInput = prompt("შეიყვანე შენი ასაკი:");
+      let age = Number(ageInput);
+
+      if (age < 18) {
+        alert("შენი ფასდაკლებაა: 20%");
+      } else if (age >= 18 && age < 65) {
+        alert("შენი ფასდაკლებაა: 5%");
+      } else {
+        alert("შენი ფასდაკლებაა: 10%");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>რიცხვების შედარება</title>
+</head>
+<body>
+  <h2>შეიყვანე ორი რიცხვი</h2>
+  <button onclick="compareNums()">შედარება</button>
+  <p id="result"></p>
+
+  <script>
+    function compareNums() {
+      let num1 = Number(prompt("შეიყვანე პირველი რიცხვი:"));
+      let num2 = Number(prompt("შეიყვანე მეორე რიცხვი:"));
+
+      if (num1 > num2) {
+        document.getElementById("result").innerText = "მეტია: " + num1;
+      } else if (num2 > num1) {
+        document.getElementById("result").innerText = "მეტია: " + num2;
+      } else {
+        document.getElementById("result").innerText = "რიცხვები ტოლია";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<h3>შეიყვანე მომხმარებლის სახელი:</h3>
+<input type="text" name="username" id="username">
+<button onclick="showUsername()">დადასტურება</button>
+
+<script>
+function showUsername() {
+  // ვიღებთ ინფუთის მნიშვნელობას name="username" id-ის დახმარებით
+  let username = document.getElementsByName("username")[0].value;
+  
+  // ვაჩვენებთ ინფუთის მნიშვნელობას alert-ით
+  alert("შეყვანილი სახელია: " + username);
+  
+  // ვასუფთავებთ ინფუთს
+  document.getElementsByName("username")[0].value = "";
+}
+</script>
