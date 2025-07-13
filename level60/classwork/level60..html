@@ -1,0 +1,210 @@
+html + javascript კოდი
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ლუწი თუ კენტი</title>
+</head>
+<body>
+  <h2>შეამოწმე რიცხვი ლუწია თუ კენტი</h2>
+
+  <input type="number" id="numInput" placeholder="შეიყვანე რიცხვი">
+  <button onclick="checkEvenOdd()">შემოწმება</button>
+
+  <p id="result"></p>
+
+  <script>
+    function checkEvenOdd() {
+      let number = document.getElementById("numInput").value;
+
+      if (number === "") {
+        document.getElementById("result").innerText = "გთხოვ შეიყვანე რიცხვი.";
+        return;
+      }
+
+      number = Number(number);
+
+      if (number % 2 === 0) {
+        document.getElementById("result").innerText = "ეს არის ლუწი რიცხვი.";
+      } else {
+        document.getElementById("result").innerText = "ეს არის კენტი რიცხვი.";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Show/Hide Image</title>
+</head>
+<body>
+
+  <!-- ფოტო -->
+  <img id="myImage" src="https://via.placeholder.com/200" style="display: none;" alt="სურათი">
+
+  <br><br>
+
+  <!-- ღილაკები -->
+  <button onclick="toggleImage('show')">Show</button>
+  <button onclick="toggleImage('hide')">Hide</button>
+
+  <script>
+    function toggleImage(action) {
+      const img = document.getElementById("myImage");
+
+      if (action === "show") {
+        img.style.display = "block";
+      } else if (action === "hide") {
+        img.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html + javascript
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Object Check</title>
+</head>
+<body>
+
+<script>
+  // პირველი ობიექტი
+  const person1 = {
+    name: "ლუკა",
+    age: 20,
+    city: "თბილისი"
+  };
+
+  // მეორე ობიექტი
+  const person2 = {
+    name: "ანა",
+    age: 22,
+    city: "თბილისი"
+  };
+
+  // შევამოწმოთ ორივე პირობა
+  if (person1.age > 18 && person2.age > 18 &&
+      person1.city === "თბილისი" && person2.city === "თბილისი") {
+    console.log("you can vote in tbilisi");
+  }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Compare People</title>
+</head>
+<body>
+
+<script>
+  // 1. მომხმარებლისგან მიღება
+  let age1 = Number(prompt("შეიყვანე პირველი ასაკი:"));
+  let city1 = prompt("შეიყვანე პირველი ქალაქი:");
+  let age2 = Number(prompt("შეიყვანე მეორე ასაკი:"));
+  let city2 = prompt("შეიყვანე მეორე ქალაქი:");
+
+  // 2. ობიექტების შექმნა
+  let person1 = {
+    age: age1,
+    city: city1
+  };
+
+  let person2 = {
+    age: age2,
+    city: city2
+  };
+
+  // 3. ქალაქების მოსახლეობა (მაგალითისთვის)
+  let cityPopulation = {
+    "თბილისი": 1200000,
+    "ბათუმი": 150000,
+    "ქუთაისი": 130000,
+    "რუსთავი": 130000,
+    "გორი": 50000
+  };
+
+  // 4. შედარება - ასაკი
+  if (person1.age > person2.age) {
+    console.log("Person 1 უფრო დიდი ასაკის არის:", person1.age);
+  } else if (person1.age < person2.age) {
+    console.log("Person 2 უფრო დიდი ასაკის არის:", person2.age);
+  } else {
+    console.log("ორივეს ერთი და იგივე ასაკი აქვს");
+  }
+
+  // 5. შედარება - მოსახლეობა
+  let pop1 = cityPopulation[person1.city] || 0;
+  let pop2 = cityPopulation[person2.city] || 0;
+
+  if (pop1 > pop2) {
+    console.log("Person 1-ის ქალაქში ცხოვრობს მეტი ადამიანი:", person1.city);
+  } else if (pop1 < pop2) {
+    console.log("Person 2-ის ქალაქში ცხოვრობს მეტი ადამიანი:", person2.city);
+  } else {
+    console.log("ორივე ქალაქში ერთი რაოდენობის მოსახლეობაა (ან არ მოიძებნა)");
+  }
+
+  // ✅ BONUS ნაწილი
+  if (person1.age < person2.age) {
+    delete person1.age;
+    console.log("Person 1-დან ამოვშალეთ ასაკი");
+  } else if (person2.age < person1.age) {
+    delete person2.age;
+    console.log("Person 2-დან ამოვშალეთ ასაკი");
+  }
+
+  if (pop1 < pop2) {
+    delete person1.city;
+    console.log("Person 1-დან ამოვშალეთ ქალაქი");
+  } else if (pop2 < pop1) {
+    delete person2.city;
+    console.log("Person 2-დან ამოვშალეთ ქალაქი");
+  }
+
+  console.log("Person 1:", person1);
+  console.log("Person 2:", person2);
+
+</script>
+
+</body>
+</html>

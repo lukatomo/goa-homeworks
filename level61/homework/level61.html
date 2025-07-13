@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება 2–7</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>საკლასო დავალებები</h1>
+
+  <!-- 2 -->
+  <button onclick="checkEvenOdd()">2) Even or Odd</button>
+
+  <!-- 3 -->
+  <button onclick="assignGrade()">3) Assign Grade</button>
+
+  <!-- 4 -->
+  <button onclick="findLargest()">4) Largest of Three</button>
+
+  <!-- 5 -->
+  <button onclick="checkVowel()">5) Vowel or Consonant</button>
+
+  <!-- 6 -->
+  <button onclick="checkDivisibility()">6) Divisible by 3 and 5</button>
+
+  <!-- 7 -->
+  <button onclick="classifyAge()">7) Age Group</button>
+
+  <script>
+    // 2) Even or Odd
+    function checkEvenOdd() {
+      let number = prompt("Enter a number:");
+      number = parseInt(number);
+      if (isNaN(number)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+      if (number % 2 === 0) {
+        alert("The number is even.");
+      } else {
+        alert("The number is odd.");
+      }
+    }
+
+    // 3) Assign Grade
+    function assignGrade() {
+      let score = prompt("Enter your score:");
+      score = parseInt(score);
+      if (isNaN(score)) {
+        alert("Please enter a valid score.");
+        return;
+      }
+
+      if (score >= 90) {
+        alert("Grade A");
+      } else if (score >= 80) {
+        alert("Grade B");
+      } else if (score >= 70) {
+        alert("Grade C");
+      } else if (score >= 60) {
+        alert("Grade D");
+      } else {
+        alert("Fail");
+      }
+    }
+
+    // 4) Largest of Three Numbers
+    function findLargest() {
+      let num1 = parseFloat(prompt("Enter first number:"));
+      let num2 = parseFloat(prompt("Enter second number:"));
+      let num3 = parseFloat(prompt("Enter third number:"));
+
+      if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+        alert("Please enter valid numbers.");
+        return;
+      }
+
+      if (num1 === num2 && num2 === num3) {
+        alert("All numbers are equal.");
+      } else if (num1 >= num2 && num1 >= num3) {
+        alert("The largest number is: " + num1);
+      } else if (num2 >= num1 && num2 >= num3) {
+        alert("The largest number is: " + num2);
+      } else {
+        alert("The largest number is: " + num3);
+      }
+    }
+
+    // 5) Vowel or Consonant
+    function checkVowel() {
+      let char = prompt("Enter a single letter:").toLowerCase();
+
+      if (char.length !== 1 || !isNaN(char)) {
+        alert("Please enter a valid single letter.");
+        return;
+      }
+
+      if ("aeiou".includes(char)) {
+        alert("It is a vowel.");
+      } else {
+        alert("It is a consonant.");
+      }
+    }
+
+    // 6) Divisibility by 3 and 5
+    function checkDivisibility() {
+      let num = parseInt(prompt("Enter a number:"));
+
+      if (isNaN(num)) {
+        alert("Please enter a valid number.");
+        return;
+      }
+
+      if (num % 3 === 0 && num % 5 === 0) {
+        alert("Divisible by both 3 and 5.");
+      } else if (num % 3 === 0) {
+        alert("Divisible by 3 only.");
+      } else if (num % 5 === 0) {
+        alert("Divisible by 5 only.");
+      } else {
+        alert("Not divisible by 3 or 5.");
+      }
+    }
+
+    // 7) Age Classification
+    function classifyAge() {
+      let age = parseInt(prompt("Enter your age:"));
+
+      if (isNaN(age) || age < 0) {
+        alert("Please enter a valid age.");
+        return;
+      }
+
+      if (age <= 12) {
+        alert("Child");
+      } else if (age <= 19) {
+        alert("Teenager");
+      } else if (age <= 59) {
+        alert("Adult");
+      } else {
+        alert("Senior");
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება 8–15</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+    }
+    p {
+      color: gray;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>საკლასო დავალებები (8–15)</h1>
+  <p>შედეგები გამოჩნდება კონსოლში (დააჭირე F12 → Console)</p>
+
+  <button onclick="print1to5()">8) Print 1 to 5 (while)</button>
+  <button onclick="printEven2to10()">9) Even 2 to 10 (while)</button>
+  <button onclick="print10to1()">10) 10 to 1 (while)</button>
+  <button onclick="print1to10()">11) 1 to 10 (for)</button>
+  <button onclick="printMultiplesOf3()">12) Multiples of 3</button>
+  <button onclick="printReverse10to1()">13) Reverse 10 to 1 (for)</button>
+  <button onclick="printEven1to20()">14) Even 1 to 20 (for)</button>
+  <button onclick="sum1to5()">15) Sum 1 to 5</button>
+
+  <script>
+    // 8) Print numbers 1 to 5
+    function print1to5() {
+      let i = 1;
+      while (i <= 5) {
+        console.log(i);
+        i++;
+      }
+    }
+
+    // 9) Print even numbers from 2 to 10
+    function printEven2to10() {
+      let i = 2;
+      while (i <= 10) {
+        console.log(i);
+        i += 2;
+      }
+    }
+
+    // 10) Print numbers from 10 down to 1
+    function print10to1() {
+      let i = 10;
+      while (i >= 1) {
+        console.log(i);
+        i--;
+      }
+    }
+
+    // 11) Print numbers from 1 to 10
+    function print1to10() {
+      for (let i = 1; i <= 10; i++) {
+        console.log(i);
+      }
+    }
+
+    // 12) First 5 multiples of 3
+    function printMultiplesOf3() {
+      for (let i = 1; i <= 5; i++) {
+        console.log(i * 3);
+      }
+    }
+
+    // 13) Print numbers from 10 to 1 (for)
+    function printReverse10to1() {
+      for (let i = 10; i >= 1; i--) {
+        console.log(i);
+      }
+    }
+
+    // 14) Print all even numbers between 1 and 20
+    function printEven1to20() {
+      for (let i = 1; i <= 20; i++) {
+        if (i % 2 === 0) {
+          console.log(i);
+        }
+      }
+    }
+
+    // 15) Print the sum of numbers from 1 to 5
+    function sum1to5() {
+      let sum = 0;
+      for (let i = 1; i <= 5; i++) {
+        sum += i;
+      }
+      console.log("Sum is: " + sum);
+    }
+  </script>
+
+</body>
+</html>
+

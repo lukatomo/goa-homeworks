@@ -1,41 +1,51 @@
-# 1) Check if all characters in a given string are lowercase
-def check_lowercase(string):
-    print(string.islower())
+# 2) Check if all characters in a given string are lowercase and print the result
+text = "hello"
+print("Is lowercase:", text.islower())
 
-# 2) Function that returns True if a string is entirely lowercase, otherwise False
-def is_all_lowercase(string):
-    return string.islower()
+# 3) Create a function that checks if a string is completely in lowercase
+def is_all_lowercase(s):
+    return s.islower()
 
-# 3) Prompt user for a string and check if it contains only lowercase letters
-def check_user_input_lowercase():
-    user_input = input("Enter a string: ")
-    print("All lowercase:", user_input.islower())
+print(is_all_lowercase("example"))  # True
+print(is_all_lowercase("Example"))  # False
 
-# 4) Verify if all characters in a user-provided string are uppercase
-def check_uppercase(string):
-    print(string.isupper())
+# 4) Prompt user to input a string and check if it's lowercase
+user_input = input("Enter a string (check lowercase): ")
+print("All lowercase?", user_input.islower())
 
-# 5) Function that returns True if a string is entirely uppercase, otherwise False
-def is_all_uppercase(string):
-    return string.isupper()
+# 5) Verify if all characters in a user-provided string are uppercase
+user_upper = input("Enter a string (check uppercase): ")
+print("All uppercase?", user_upper.isupper())
 
-# 6) Prompt user for a string and check if it is in uppercase
-def check_user_input_uppercase():
-    user_input = input("Enter a string: ")
-    print("All uppercase:", user_input.isupper())
+# 6) Function that checks if string is entirely uppercase
+def is_all_uppercase(s):
+    return s.isupper()
 
-# 7) Convert a string to swapped case (uppercase to lowercase and vice versa)
-def swap_case(string):
-    print(string.swapcase())
+print(is_all_uppercase("HELLO"))  # True
+print(is_all_uppercase("Hello"))  # False
 
-# 8) Function that takes a sentence and returns it with swapped case
+# 7) Check and display whether string input by user is in uppercase
+user_input2 = input("Enter a string (display if it's uppercase): ")
+print("Is uppercase:", user_input2.isupper())
+
+# 8) Convert a string by swapping case
+swap_text = "Hello World"
+print("Swapped case:", swap_text.swapcase())
+
+# 9) Function to swap case of each letter in a sentence
 def swap_case_sentence(sentence):
     return sentence.swapcase()
 
-# 9) Function that takes a user's name and age, returning a formatted welcome message
+print(swap_case_sentence("Hello THERE!"))  # hELLO there!
+
+# 10) Function to return a welcome message using name and age
 def welcome_message(name, age):
     return f"Welcome, {name}! You are {age} years old."
 
-# 10) Function that takes a sentence and returns a list of words
+print(welcome_message("Luka", 15))
+
+# 11) Function to split sentence into list of words
 def split_into_words(sentence):
     return sentence.split()
+
+print(split_into_words("This is a test sentence."))

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Check</title>
+</head>
+<body>
+  <h2>პაროლის შემოწმება</h2>
+
+  <script>
+    function correctUserPassword() {
+      const correctPassword = "1234"; // სწორი პაროლი
+      let guess;
+      let attempts = 0;
+
+      do {
+        guess = prompt("შეიყვანეთ პაროლი:");
+        attempts++;
+      } while (guess !== correctPassword);
+
+      alert("Correct guess! ცდების რაოდენობა: " + attempts);
+    }
+
+    // ფუნქციის გაშვება ავტომატურად, როდესაც გვერდი ჩაიტვირთება
+    window.onload = correctUserPassword;
+  </script>
+</body>
+</html>

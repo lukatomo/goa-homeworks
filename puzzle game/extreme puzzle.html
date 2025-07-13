@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>6x6 თავისუფალი ფაზლი</title>
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    margin-top: 30px;
+  }
+  #puzzle {
+    width: 600px;
+    height: 600px;
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(6, 100px);
+    gap: 2px;
+    border: 3px solid #333;
+  }
+  .piece {
+    width: 100px;
+    height: 100px;
+    background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAnQNLUTChqs2yerNVaEtKEJ7XwmGUYjgofA&s');
+    background-size: 600px 600px;
+    cursor: pointer;
+    border: 1px solid #666;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<h2>6x6 თავისუფალი ფაზლი</h2>
+<p>დააწექი ორ ნაწილზე, რომ გაცვალო ადგილები</p>
+<div id="puzzle"></div>
+
+<script>
+  const puzzle = document.getElementById('puzzle');
+  const size = 6;
+  const pieceSize = 100;
+  let pieces = [];
+
+  function createPieces() {
+    pieces = [];
+    for (let i = 0; i < size * size; i++) {
+      pieces.push(i);
+    }
+  }
+
+  function render() {
+    puzzle.innerHTML = '';
+    for (let i = 0; i < pieces.length; i++) {
+      const piece = document.createElement('div');
+      piece.classList.add('piece');
+      const val = pieces[i];
+      piece.style.backgroundPosition = `-${(val % size) * pieceSize}px -${Math.floor(val / size) * pieceSize}px`;
+      piece.dataset.index = i;
+      piece.dataset.val = val;
+      piece.addEventListener('click', onPieceClick);
+      puzzle.appendChild(piece);
+    }
+  }
+
+  let firstSelected = null;
+
+  function onPieceClick(e) {
+    const clickedIndex = Number(e.target.dataset.index);
+    if (firstSelected === null) {
+      firstSelected = clickedIndex;
+      e.target.style.outline = '3px solid red';
+    } else {
+      if (firstSelected !== clickedIndex) {
+        [pieces[firstSelected], pieces[clickedIndex]] = [pieces[clickedIndex], pieces[firstSelected]];
+      }
+      const divs = puzzle.querySelectorAll('.piece');
+      divs.forEach(div => div.style.outline = 'none');
+      firstSelected = null;
+      render();
+      if (checkWin()) {
+        setTimeout(() => alert('გილოცავ! ფაზლი გადაწყდა! 🎉'), 100);
+      }
+    }
+  }
+
+  function checkWin() {
+    for (let i = 0; i < pieces.length; i++) {
+      if (pieces[i] !== i) return false;
+    }
+    return true;
+  }
+
+  function shuffle() {
+    for (let i = pieces.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pieces[i], pieces[j]] = [pieces[j], pieces[i]];
+    }
+  }
+
+  createPieces();
+  shuffle();
+  render();
+</script>
+
+</body>
+</html>

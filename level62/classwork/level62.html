@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ფონის შეცვლა</title>
+  <style>
+    #myButton {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="myButton">დაკლიკე ფონის შესაცვლელად</button>
+
+  <script>
+    // JavaScript ნაწილი
+    const button = document.getElementById("myButton");
+
+    function changeBackgroundColor() {
+      button.style.backgroundColor = "black";
+    }
+
+    button.addEventListener("click", changeBackgroundColor);
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ფონტის ზომის შეცვლა</title>
+  <style>
+    h2 {
+      cursor: pointer;
+      color: darkblue;
+    }
+  </style>
+</head>
+<body>
+
+  <h2 id="myHeading">დააკლიკე ჩემს ტექსტზე!</h2>
+
+  <script>
+    // JavaScript ნაწილი
+    const heading = document.getElementById("myHeading");
+
+    function changeFontSize() {
+      const size = prompt("შეიყვანე რიცხვი (პიქსელებში):");
+      if (size && !isNaN(size)) {
+        heading.style.fontSize = size + "px";
+      } else {
+        alert("გთხოვ, შეიყვანე მხოლოდ რიცხვი.");
+      }
+    }
+
+    heading.addEventListener("click", changeFontSize);
+  </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>სურათის src</title>
+</head>
+<body>
+
+  <img id="myImage" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Placeholder_view_vector.svg/640px-Placeholder_view_vector.svg.png" alt="სურათი" width="300">
+
+  <script>
+    // JavaScript ნაწილი
+    const image = document.getElementById("myImage");
+    console.log("სურათის src არის: " + image.src);
+  </script>
+
+</body>
+</html>

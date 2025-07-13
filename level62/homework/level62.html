@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>ღილაკზე დაჭერის მოქმედებები</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 30px;
+    }
+
+    button {
+      margin: 10px 0;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+    }
+
+    #colorBox, #hideBox {
+      width: 200px;
+      height: 100px;
+      margin-bottom: 20px;
+      background-color: lightgray;
+      padding: 10px;
+    }
+
+    #heading {
+      margin-top: 20px;
+      font-size: 24px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Paragraph and Button -->
+  <p id="myParagraph">ეს არის პარაგრაფი.</p>
+  <button onclick="changeText()">შეცვალე ტექსტი</button>
+
+  <!-- 2. Div for background color -->
+  <div id="colorBox">მე ვარ ღრუბლოვანი ბლოკი</div>
+  <button onclick="changeBackground()">შეცვალე ფონის ფერი</button>
+
+  <!-- 3. Heading -->
+  <h2 id="heading">ჩემი ზომა შეიცვლება</h2>
+  <button onclick="changeFontSize()">გადიდება</button>
+
+  <!-- 4. Div to hide -->
+  <div id="hideBox">მე დავიმალები :)</div>
+  <button onclick="hideDiv()">დამალე</button>
+
+  <!-- 5. Alert message -->
+  <button onclick="showMessage()">მაჩვენე შეტყობინება</button>
+
+  <script>
+    // 1) Change paragraph text
+    function changeText() {
+      document.getElementById("myParagraph").textContent = "ტექსტი წარმატებით შეიცვალა!";
+    }
+
+    // 2) Change background color of div
+    function changeBackground() {
+      document.getElementById("colorBox").style.backgroundColor = "lightgreen";
+    }
+
+    // 3) Change font size of heading
+    function changeFontSize() {
+      document.getElementById("heading").style.fontSize = "36px";
+    }
+
+    // 4) Hide a div
+    function hideDiv() {
+      document.getElementById("hideBox").style.display = "none";
+    }
+
+    // 5) Show an alert message
+    function showMessage() {
+      alert("მესიჯი გამოჩნდა წარმატებით!");
+    }
+  </script>
+
+</body>
+</html>

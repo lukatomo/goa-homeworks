@@ -1,118 +1,34 @@
+# 1) ფუნქცია big_sentence: დიდი წინადადების დაბეჭდვა f-string-ით
 def big_sentence(name, surname, age, color):
-    print(f"{name} {surname} is {age} years old and their favorite color is {color}.")
+    print(f"My name is {name} {surname}, I am {age} years old and my favorite color is {color}.")
 
-# ფუნქციის გამოძახება არგუმენტებით
-big_sentence("თამარი", "მეფარიშვილი", 25, "წითელი")
-
-# ამ კოდში:
-
-# name, surname, age, და color გადასცემია როგორც არგუმენტები.
-# f-string-ის გამოყენებით ვბეჭდავთ ინფორმაციას.
-# თუ ამ კოდის ამოგზაურება მოახდენთ, მიიღებთ ასეთ გამოსავალს:
-
-# pgsql
-# Copy
-# Edit
-# თამარი მეფარიშვილი is 25 years old and their favorite color is წითელი.
-
-
-
-
-
-
-
-
-
-
+# 2) ფუნქცია check_lowercase: შეამოწმებს, არის თუ არა ტექსტი მთლიანად პატარა ასოებით
 def check_lowercase(user_str):
     if user_str.islower():
-        print(f"'{user_str}' არის მთლიანად lowercase")
+        print(f"'{user_str}' is all lowercase.")   # 2.1) როცა ტექსტი სრულად პატარა ასოებითაა
     else:
-        print(f"'{user_str}' არ არის მთლიანად lowercase")
+        print(f"'{user_str}' is NOT all lowercase.")  # 2.2) თუ არის სხვა ასოები ან სიმბოლოები
 
-# ფუნქციის გამოძახება სხვადასხვა არგუმენტებით
-check_lowercase("hello")
-check_lowercase("Hello")
-check_lowercase("HELLO")
-# islower() მეთოდი დაადგენს, არის თუ არა სთრინგი მთლიანად lowercase ასოებით.
-# თუ ფუნქცია True-ს დააბრუნებს, მაშინ მთელი სთრინგი არის lowercase, წინააღმდეგ შემთხვევაში - არა.
-# ასე რომ, ამ კოდის შემთხვევაში, პირველი გამოძახება ("hello") უნდა დაბეჭდოს რომ ის lowercase-შია, მეორე ("Hello") და მესამე ("HELLO") კი რომ არ არის.
-
-
-
-
-
+# 3) ფუნქცია list_join: აერთიანებს სიის ელემენტებს სტრინგით str_to_join
 def list_join(user_list, str_to_join):
     result = str_to_join.join(user_list)
     print(result)
 
-# ფუნქციის გამოძახება სხვადასხვა არგუმენტებით
-list_join(["apple", "banana", "cherry"], ", ")
-list_join(["2025", "02", "09"], "-")
-list_join(["hello", "world"], "_")
-# პროგრამის მუშაობის პრინციპი:
+# --- ფუნქციების გამოძახებები ---
 
-# join() მეთოდი აერთიანებს სიაში არსებულ ყველა ელემენტს, თითოეული ელემენტის შორის კი ცალკეულ სთრინგს (რომელიც გადაეცემა str_to_join-ად) უდგას.
-# მაგალითად, პირველ გამოძახებაზე ("apple", "banana", "cherry") შორის იქნება ", ", ხოლო მეორე გამოძახებაზე ("2025", "02", "09") შორის იქნება "-".
-# გამოძახების შედეგები შემდეგი იქნება:
+# 4) big_sentence-ის გამოძახება არგუმენტებით
+big_sentence("Luka", "Tomoshevski", 15, "blue")
 
-# apple, banana, cherry
-2025-02-09
-# hello_world
+print()  # 5) შედეგების გამიჯვნა
 
+# 6) check_lowercase-ის გამოძახება 3 სხვადასხვა არგუმენტით
+check_lowercase("hello")    # 6.1) სრულიად პატარა ასოები
+check_lowercase("Hello")    # 6.2) არ არის პატარა ასოებით ყველა
+check_lowercase("python3")  # 6.3) შეიცავს ციფრს, არა სრულად პატარა ასოებით
 
+print()  # 7) კიდევ შედეგების გამიჯვნა
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-def element_remover(user_list, index_to_remove):
-    # ელემენტის ამოშლა მოცემული ინდექსით
-    if 0 <= index_to_remove < len(user_list):
-        del user_list[index_to_remove]
-        print(f"ახალი სია: {user_list}")
-    else:
-        print("ინდექსი არასწორია")
-
-# ფუნქციის გამოძახება სხვადასხვა არგუმენტებით
-element_remover(["apple", "banana", "cherry", "date"], 2)  # ამოიშლება "cherry"
-element_remover([1, 2, 3, 4, 5], 0)  # ამოიშლება "1"
-element_remover(["a", "b", "c", "d", "e"], 4)  # ამოიშლება "e"
-# განმარტება:
-# del user_list[index_to_remove] – ამ ლაინით ამოშლილი იქნება ელემენტი იმ ინდექსზე, რომელიც გადაეცემა ფუნქციას.
-# თუ index_to_remove არ შეესაბამება სიის სიგრძეს, ცვლის ფუნქცია შეცდომის შეტყობინებას: "ინდექსი არასწორია".
-# როცა გატარდება ფუნქცია, შედეგი იქნება:
-# element_remover(["apple", "banana", "cherry", "date"], 2) – ამოიშლება "cherry", და ახალი სია იქნება: ["apple", "banana", "date"].
-# element_remover([1, 2, 3, 4, 5], 0) – ამოიშლება "1", და ახალი სია იქნება: [2, 3, 4, 5].
-# element_remover(["a", "b", "c", "d", "e"], 4) – ამოიშლება "e", და ახალი სია იქნება: ["a", "b", "c", "d"].
+# 8) list_join-ის გამოძახება 3-ჯერ განსხვავებული არგუმენტებით
+list_join(["apple", "banana", "cherry"], ", ")  # 8.1) ელემენტები შერეულია ", "
+list_join(["2025", "07", "13"], "-")            # 8.2) თარიღის მსგავსი სტრინგების გაერთიანება
+list_join(["a", "b", "c", "d"], "*")           # 8.3) სიმბოლოებით გაყოფა
