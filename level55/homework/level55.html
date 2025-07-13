@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8" />
+<title>დავალებები</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+  }
+  section {
+    margin-bottom: 40px;
+  }
+</style>
+</head>
+<body>
+
+<!-- დავალება 1 -->
+<section>
+  <h2>დავალება 1</h2>
+  <input type="number" id="ageInput" placeholder="ასაკი" />
+  <input type="text" id="phraseInput" placeholder="საყვარული ფრაზა" />
+  <button onclick="task1()">გაგზავნა</button>
+  <h2 id="task1Result"></h2>
+</section>
+
+<!-- დავალება 2 -->
+<section>
+  <h2>დავალება 2</h2>
+  <input type="range" min="0" max="100" id="rangeInput" oninput="task2()" />
+  <span id="rangeValue">Current value: 0</span>
+</section>
+
+<!-- დავალება 3 -->
+<section>
+  <h2>დავალება 3</h2>
+  სახელი: <input type="text" id="name3" placeholder="სახელი" />
+  ემოჯი: <input type="text" id="emoji3" placeholder="ემოჯი" />
+  <button onclick="task3()">გაგზავნა</button>
+  <h1 id="task3Result"></h1>
+</section>
+
+<!-- დავალება 4 -->
+<section>
+  <h2>დავალება 4</h2>
+  <textarea id="message4" rows="4" cols="30" placeholder="შეტყობინება"></textarea><br />
+  <button onclick="task4()">გაგზავნა</button>
+  <p id="task4Result"></p>
+</section>
+
+<!-- დავალება 5 -->
+<section>
+  <h2>დავალება 5</h2>
+  <input type="number" id="num1_5" placeholder="რიცხვი 1" />
+  <input type="number" id="num2_5" placeholder="რიცხვი 2" />
+  <button onclick="task5()">ჯამის გამოთვლა</button>
+  <h2 id="task5Result"></h2>
+</section>
+
+<!-- დავალება 6 -->
+<section>
+  <h2>დავალება 6</h2>
+  <input type="text" id="text6" placeholder="ჩაწერეთ ტექსტი" />
+  <button onclick="task6()">გამოთვლა</button>
+  <p id="task6Result"></p>
+</section>
+
+<!-- დავალება 7 -->
+<section>
+  <h2>დავალება 7</h2>
+  <input type="text" id="color7" placeholder="ფერი (red, blue, ...)" />
+  <button onclick="task7()">ფონის შეცვლა</button>
+</section>
+
+<script>
+  // დავალება 1
+  function task1() {
+    const age = document.getElementById('ageInput').value;
+    const phrase = document.getElementById('phraseInput').value;
+    document.getElementById('task1Result').textContent = `თქვენი ასაკია ${age} და საყვარელი ფრაზაა: ${phrase}`;
+  }
+
+  // დავალება 2
+  function task2() {
+    const val = document.getElementById('rangeInput').value;
+    document.getElementById('rangeValue').textContent = `Current value: ${val}`;
+  }
+
+  // დავალება 3
+  function task3() {
+    const name = document.getElementById('name3').value;
+    const emoji = document.getElementById('emoji3').value;
+    document.getElementById('task3Result').textContent = `გთხოვთ, მიესალმეთ: ${emoji} ${name}!`;
+  }
+
+  // დავალება 4
+  function task4() {
+    const message = document.getElementById('message4').value;
+    const p = document.getElementById('task4Result');
+    p.textContent = message;
+    p.style.backgroundColor = 'lightyellow';
+  }
+
+  // დავალება 5
+  function task5() {
+    const n1 = Number(document.getElementById('num1_5').value);
+    const n2 = Number(document.getElementById('num2_5').value);
+    const sum = n1 + n2;
+    document.getElementById('task5Result').textContent = `ჯამი: ${sum}`;
+  }
+
+  // დავალება 6
+  function task6() {
+    const text = document.getElementById('text6').value;
+    document.getElementById('task6Result').textContent = `სიმბოლოების რაოდენობა: ${text.length}`;
+  }
+
+  // დავალება 7
+  function task7() {
+    const color = document.getElementById('color7').value;
+    document.body.style.backgroundColor = color;
+  }
+</script>
+
+</body>
+</html>
