@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM Tasks</title>
+</head>
+<body>
+  <div id="container"></div>
+
+  <script>
+    // 2. Create a new <p> element and add it to the body
+    const paragraph = document.createElement("p");
+    paragraph.textContent = "This is a new paragraph.";
+    document.body.appendChild(paragraph);
+
+    // 3. Create an <h1> with text and append it to a <div>
+    const heading = document.createElement("h1");
+    heading.textContent = "Welcome to My Page";
+    const div = document.getElementById("container");
+    div.appendChild(heading);
+
+    // 4. Create an <img>, set src, and add to page
+    const image = document.createElement("img");
+    image.src = "https://via.placeholder.com/150";
+    image.alt = "Placeholder Image";
+    document.body.appendChild(image);
+
+    // 5. Create a <button> with text and add to body
+    const button = document.createElement("button");
+    button.textContent = "Click me";
+    document.body.appendChild(button);
+
+    // 6. Create a <ul> with 3 <li> items
+    const ul = document.createElement("ul");
+    const items = ["First item", "Second item", "Third item"];
+    items.forEach(text => {
+      const li = document.createElement("li");
+      li.textContent = text;
+      ul.appendChild(li);
+    });
+    document.body.appendChild(ul);
+  </script>
+</body>
+</html>
