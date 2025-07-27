@@ -1,0 +1,83 @@
+1. createElement()
+ ეს მეთოდი ქმნის ახალ HTML ელემენტს.
+მაგ: document.createElement("div") ქმნის ახალ <div> ელემენტს.
+
+2. appendChild()
+ ეს მეთოდი ამატებს შვილ ელემენტს (child) რომელიმე მშობელ ელემენტში.
+მაგ: parent.appendChild(child) ნიშნავს, რომ ჩაიმატოს child ელემენტი parent-ის შიგნით.
+
+3. replaceChild()
+ ეს მეთოდი ცვლის ძველ შვილ ელემენტს ახლით.
+მაგ: parent.replaceChild(newChild, oldChild) – ეს ნიშნავს რომ ძველი ელემენტი შეიცვლება ახალით.
+
+4. cloneNode()
+ეს მეთოდი ქმნის ელემენტის ასლს.
+element.cloneNode(true) – ნიშნავს, რომ ელემენტი და მისი შიგთავსიც დაკოპირდება (ღრმად კლონირება),
+cloneNode(false) – კი მხოლოდ გარე ტეგს დაკოპირებს.
+
+createElement() მაგალითები
+
+// 1. ვქმნით ახალ <p> ელემენტს
+let paragraph = document.createElement("p");
+
+// 2. ვქმნით <h1> სათაურს
+let title = document.createElement("h1");
+
+// 3. ვქმნით <button> ღილაკს
+let btn = document.createElement("button");
+
+ appendChild() მაგალითები
+
+// 1. <div>-ში <p> ელემენტის ჩამატება
+let div = document.createElement("div");
+let p = document.createElement("p");
+div.appendChild(p); // <p> დაემატება <div>-ს
+
+// 2. <body>-ში <h1> სათაურის ჩამატება
+let h1 = document.createElement("h1");
+document.body.appendChild(h1);
+
+// 3. <ul>-ში <li> ელემენტის ჩამატება
+let ul = document.createElement("ul");
+let li = document.createElement("li");
+ul.appendChild(li);
+ replaceChild() მაგალითები
+
+// 1. <div>-ში <p> ჩანაცვლება <h2>-ით
+let div = document.createElement("div");
+let oldP = document.createElement("p");
+let newH2 = document.createElement("h2");
+div.appendChild(oldP); // ჯერ ვამატებთ p-ს
+div.replaceChild(newH2, oldP); // ვცვლით h2-ით
+
+// 2. <ul>-ში ერთი <li> ჩანაცვლება მეორით
+let ul = document.createElement("ul");
+let li1 = document.createElement("li");
+let li2 = document.createElement("li");
+ul.appendChild(li1);
+ul.replaceChild(li2, li1);
+
+// 3. <section>-ში ტექსტის ჩანაცვლება სათაურით
+let section = document.createElement("section");
+let text = document.createElement("p");
+text.textContent = "ძველი ტექსტი";
+let heading = document.createElement("h3");
+heading.textContent = "ახალი სათაური";
+section.appendChild(text);
+section.replaceChild(heading, text);
+
+cloneNode() მაგალითები
+
+// 1. <div> ელემენტის კლონირება ღრმად (true)
+let originalDiv = document.createElement("div");
+originalDiv.innerHTML = "<p>შიგთავსი</p>";
+let copyDiv = originalDiv.cloneNode(true); // ყველა შიგთავსით ერთად
+
+// 2. <p> ელემენტის ზედაპირული კლონირება (false)
+let originalP = document.createElement("p");
+let clonedP = originalP.cloneNode(false); // მხოლოდ <p> კლონირდება, შიგნით არაფერია
+
+// 3. უკვე არსებულ ღილაკის კლონირება
+let btn1 = document.createElement("button");
+btn1.textContent = "დაწკაპე";
+let btn2 = btn1.cloneNode(true); // ღილაკიც და ტექსტიც დაკოპირდება

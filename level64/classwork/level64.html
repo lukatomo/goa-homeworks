@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>DOM მეთოდების მაგალითები</title>
+</head>
+<body>
+  <!-- ძირითადი კონტეინერი -->
+  <div id="main"></div>
+
+  <script>
+    
+    // createElement - ელემენტის შექმნა
+    
+
+    // ვქმნით <p> ელემენტს
+    const parag1 = document.createElement("p"); // ვქმნით პარაგრაფს
+    parag1.textContent = "ეს არის პირველი პარაგრაფი";
+    document.body.appendChild(parag1); // ვამატებთ body-ში
+
+    // შევქმნით <button> ელემენტს
+    const btn1 = document.createElement("button"); // ღილაკის შექმნა
+    btn1.textContent = "დააჭირე აქ";
+    document.body.appendChild(btn1); // ვამატებთ body-ში
+
+     
+    // appendChild - ელემენტის ჩამატება
+    
+
+    // <ul> სიაში <li> ელემენტის ჩამატება
+    const ul = document.createElement("ul"); // ვქმნით სიას
+
+    const li1 = document.createElement("li");
+    li1.textContent = "პუნქტი 1";
+    ul.appendChild(li1); // ჩავამატეთ ul-ში
+
+    const li2 = document.createElement("li");
+    li2.textContent = "პუნქტი 2";
+    ul.appendChild(li2); // ჩავამატეთ ul-ში
+
+    document.body.appendChild(ul); // ჩავამატეთ ul body-ში
+
+    // div-ში პარაგრაფის ჩამატება
+    const divBox = document.createElement("div");
+    const parInBox = document.createElement("p");
+    parInBox.textContent = "ეს არის div-ის შიგნით მყოფი პარაგრაფი";
+    divBox.appendChild(parInBox); // ჩავამატეთ პარაგრაფი div-ში
+    document.body.appendChild(divBox); // ჩავამატეთ div body-ში
+
+    
+    // cloneNode - ელემენტის ასლის შექმნა
+    
+
+    // მთლიანად ვაკოპირებთ ელემენტს (მოაქვს შიგთავსიც)
+    const originalDiv = document.createElement("div");
+    originalDiv.textContent = "ეს არის ორიგინალი";
+    document.body.appendChild(originalDiv);
+
+    const copiedDiv = originalDiv.cloneNode(true); // true - შიგთავსიანად
+    copiedDiv.textContent = "ეს არის ასლი";
+    document.body.appendChild(copiedDiv);
+
+    //ვაკოპირებთ ღილაკს მხოლოდ სტრუქტურად (false)
+    const originalBtn = document.createElement("button");
+    originalBtn.textContent = "ორიგინალი ღილაკი";
+    document.body.appendChild(originalBtn);
+
+    const copiedBtn = originalBtn.cloneNode(false); // false - შიგთავსის გარეშე
+    copiedBtn.textContent = "ასლი ღილაკი";
+    document.body.appendChild(copiedBtn);
+
+    
+    // replaceChild - ელემენტის ჩანაცვლება
+    
+
+    // div-ში არსებული პარაგრაფის ჩანაცვლება
+    const box = document.createElement("div");
+    const oldText = document.createElement("p");
+    oldText.textContent = "ძველი პარაგრაფი";
+
+    const newText = document.createElement("p");
+    newText.textContent = "ახალი პარაგრაფი";
+
+    box.appendChild(oldText); // ჩავამატეთ ძველი
+    box.replaceChild(newText, oldText); // ჩავანაცვლეთ ახალით
+    document.body.appendChild(box);
+
+   // div-ში სხვა ელემენტის ჩანაცვლება
+    const div2 = document.createElement("div");
+    const oldItem = document.createElement("h2");
+    oldItem.textContent = "ძველი სათაური";
+
+    const newItem = document.createElement("h3");
+    newItem.textContent = "ახალი ჩანაცვლებული სათაური";
+
+    div2.appendChild(oldItem); // ძველი ელემენტის ჩამატება
+    div2.replaceChild(newItem, oldItem); // ჩანაცვლება
+    document.body.appendChild(div2);
+
+  </script>
+</body>
+</html>
