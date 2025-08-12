@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>Image Slider</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: #f0f0f0;
+            font-family: sans-serif;
+        }
+        img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+        .controls {
+            margin-top: 15px;
+        }
+        button {
+            padding: 8px 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background: #333;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <img id="image" src="0.jpg" alt="slider">
+    <div class="controls">
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+    </div>
+
+    <script>
+        const previous = document.getElementById("previous");
+        const next = document.getElementById("next");
+        let image = document.getElementById("image");
+        
+        let index = 0; // ეს ცვლადი ინახავს, რომელი სურათი ჩანს ამჟამად
+
+        // სურათების სახელების მასივი
+        const images = ["0.jpg", "1.jpg", "2.jpg"];
+
+        // ფუნქცია, რომელიც ცვლის სურათს
+        function showImage(currIndex) {
+            index = currIndex;
+
+            // თუ გადაცდა სურათების რაოდენობას, დავაბრუნოთ თავიდან
+            if (index >= images.length) {
+                index = 0;
+            } else if (index < 0) {
+                index = images.length - 1; // უკან გადასვლისას გადავდივართ ბოლოში
+            }
+
+            // ვცვლით img ტეგის src ატრიბუტს
+            image.src = images[index];
+        }
+
+        // წინა ღილაკზე დაჭერისას გადავდივართ წინა სურათზე
+        previous.addEventListener("click", function() {
+            showImage(index - 1);
+        });
+
+        // შემდეგ ღილაკზე დაჭერისას გადავდივართ შემდეგ სურათზე
+        next.addEventListener("click", function() {
+            showImage(index + 1);
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+რა არის Bubbling და Capturing
+JavaScript-ში Event Flow-ს ორი ძირითადი ფაზა არსებობს:
+
+Capturing (დაჭერის ფაზა)
+იწყება მაღლიდან დაბლა — ანუ document → html → body → parent → child.
+
+ბრაუზერი პირველ რიგში ამოწმებს ყველაზე გარე ელემენტს და ნელ-ნელა ჩამოდის შიდა ელემენტამდე.
+
+Capturing-ის დროს იშვიათად ვიყენებთ, მაგრამ შეიძლება მოვითხოვოთ {capture: true} პარამეტრით.
+
+Bubbling (ამოსვლის ფაზა)
+იწყება შიდა ელემენტიდან გარეთ — ანუ child → parent → body → html → document.
+
+ნაგულისხმევად (default) addEventListener იყენებს Bubbling-ს.
+
+ეს უფრო ხშირად გამოიყენება, რადგან event delegation ძირითადად ბაბლინგზე მუშაობს.
+

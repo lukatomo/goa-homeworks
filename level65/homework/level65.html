@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალებები ერთად</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #f7f7f7;
+    }
+
+    h2 {
+      margin-top: 50px;
+      color: #333;
+    }
+
+    /* === 2) ვერტიკალური ანიმაცია === */
+    #animatedBox {
+      width: 100px;
+      height: 100px;
+      background-color: #4caf50;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 15px;
+    }
+
+    /* === 4) Counter სტილი === */
+    #counterContainer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+      font-size: 30px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    #count {
+      width: 50px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 2) ანიმაცია ზემოდან ქვემოთ -->
+  <h2>2) ვერტიკალური ანიმაცია</h2>
+  <div id="animatedBox"></div>
+
+  <!-- 3) მოვლენის ახსნა -->
+  <h2>3) მოვლენის ახსნა კომენტარით</h2>
+  <p>
+    "მოვლენა" არის ქმედება, რომელიც ხდება საიტზე — მაგალითად, <b>ღილაკზე დაჭერა</b>, <b>მაუსის მოძრაობა</b> ან <b>კლავიატურის გამოყენება</b>.
+  </p>
+  <p>
+    ქვემოთ მოცემულ კოდში ჩანს, როგორ რეაგირებს ბრაუზერი ღილაკზე დაჭერაზე:
+  </p>
+  <pre>
+    const button = document.getElementById("btn");
+    button.addEventListener("click", function() {
+      alert("ღილაკი დააჭირეს!");
+    });
+  </pre>
+
+  <!-- 4) Counter ფუნქცია -->
+  <h2>4) Counter ფუნქცია (+1 / -1)</h2>
+  <div id="counterContainer">
+    <button id="minusBtn">-1</button>
+    <p id="count">0</p>
+    <button id="plusBtn">+1</button>
+  </div>
+
+  <!-- JavaScript ცალკე ფაილად -->
+  <script src="script.js"></script>
+</body>
+</html>
