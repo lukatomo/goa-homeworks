@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება</title>
+</head>
+<body>
+  <div id="box">
+    <p id="text">ეს არის პარაგრაფი</p>
+  </div>
+
+  <script>
+    function replaceParagraph() {
+      // შევქმნი ღილაკს
+      let button = document.createElement("button");
+      button.textContent = "Click me";
+
+      // ვიპოვი პარაგრაფს
+      let para = document.getElementById("text");
+
+      // პარაგრაფის მშობელი
+      let parent = para.parentNode;
+
+      // პარაგრაფის ღილაკით ჩანაცვლება
+      parent.replaceChild(button, para);
+    }
+
+    // ფუნქცია ჩაიტვირთოს საიტის ჩატვირთვისას
+    window.onload = replaceParagraph;
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <title>საკლასო</title>
+</head>
+<body>
+    <p id="myPara">ეს არის პარაგრაფი</p>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!doctype html>
+<html lang="ka">
+<head>
+  <meta charset="utf-8">
+  <title>mouseout counter</title>
+</head>
+<body>
+  <h2 id="title">მე ვარ მეორე დონის სათაური</h2>
+
+  <script src="app.js"></script>
+</body>
+</html>

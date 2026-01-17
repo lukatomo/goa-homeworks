@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>დავალება</title>
+</head>
+<body>
+    <p id="mypara">ეს არის ჩემი პარაგრაფი</p>
+
+    <script>
+        let p = document.getElementById("mypara");
+
+        p.addEventListener("click", function(){
+            if(p.style.textAlign === "left" || p.style.textAlign === ""){
+                p.style.textAlign = "center";
+            }else{
+                p.style.textAlign = "left";
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8">
+  <title>დავალება</title>
+  <style>
+    h2{
+      font-size:20px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="myh2">მეორე დონის სათაური</h2>
+
+  <script>
+    let h2 = document.getElementById("myh2");
+
+    h2.addEventListener("pointerdown", function(e){
+      let fs = getComputedStyle(e.target).fontSize;
+      if(fs == "20px"){
+        e.target.style.fontSize = "30px";
+      }else{
+        e.target.style.fontSize = "20px";
+      }
+    });
+  </script>
+</body>
+</html>
