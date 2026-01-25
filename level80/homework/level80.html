@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Functions & Array Examples</title>
+</head>
+<body>
+    <h2>JS Functions & Array Examples (2-13)</h2>
+
+    <!-- Buttons for interactive examples -->
+    <button id="checkHello">Check if Sentence Starts with "Hello"</button>
+    <button id="checkTemp">Check if Filename is Temporary</button>
+    <button id="trimInput">Trim Input</button>
+    <button id="checkEmpty">Check Empty Input</button>
+    <button id="concatNumbers">Concat Number Arrays</button>
+    <button id="concatStudents">Concat Student Arrays</button>
+    <button id="checkNumber">Check Number in Array</button>
+    <button id="checkColor">Check Color "blue"</button>
+    <button id="reverseNumbers">Reverse Number Array</button>
+    <button id="reverseUsers">Reverse User Names</button>
+    <button id="printNumbers">Print Numbers with forEach</button>
+    <button id="pricesWithTax">Prices with 10% Tax</button>
+
+    <script>
+        /********** 2-3: Starts With Checks **********/
+        function startsWithHello(sentence) {
+            return sentence.startsWith("Hello");
+        }
+
+        function checkTempFile(filename) {
+            return filename.startsWith("temp_") ? "Temporary file" : "Regular file";
+        }
+
+        document.getElementById("checkHello").addEventListener("click", function() {
+            const sentence = prompt("Enter a sentence:");
+            alert(startsWithHello(sentence));
+        });
+
+        document.getElementById("checkTemp").addEventListener("click", function() {
+            const filename = prompt("Enter a filename:");
+            alert(checkTempFile(filename));
+        });
+
+        /********** 4-5: Trim and Empty Checks **********/
+        function trimInput(str) {
+            return str.trim();
+        }
+
+        function isEmptyInput(str) {
+            return str.trim() === "";
+        }
+
+        document.getElementById("trimInput").addEventListener("click", function() {
+            const input = prompt("Enter a string with spaces:");
+            alert("Trimmed string: '" + trimInput(input) + "'");
+        });
+
+        document.getElementById("checkEmpty").addEventListener("click", function() {
+            const input = prompt("Enter something (can be spaces):");
+            alert(isEmptyInput(input) ? "Input is empty" : "Input has content");
+        });
+
+        /********** 6-7: Array Concat **********/
+        function concatNumbers(arr1, arr2) {
+            return arr1.concat(arr2);
+        }
+
+        function concatStudents(arr1, arr2) {
+            return arr1.concat(arr2);
+        }
+
+        document.getElementById("concatNumbers").addEventListener("click", function() {
+            const result = concatNumbers([1,2,3], [4,5,6]);
+            alert("Merged number array: " + result);
+        });
+
+        document.getElementById("concatStudents").addEventListener("click", function() {
+            const result = concatStudents(["Alice","Bob"], ["Charlie","David"]);
+            alert("Combined class list: " + result.join(", "));
+        });
+
+        /********** 8-9: Includes **********/
+        function numberExists(arr, num) {
+            return arr.includes(num);
+        }
+
+        function colorExists(colors) {
+            return colors.includes("blue");
+        }
+
+        document.getElementById("checkNumber").addEventListener("click", function() {
+            const numbers = [10,20,30,40];
+            const num = parseInt(prompt("Enter a number to check:"));
+            alert(numberExists(numbers, num));
+        });
+
+        document.getElementById("checkColor").addEventListener("click", function() {
+            const colors = ["red","green","blue","yellow"];
+            alert(colorExists(colors) ? '"blue" is in the list' : '"blue" is not in the list');
+        });
+
+        /********** 10-11: Reverse **********/
+        function reverseNumbers(arr) {
+            return arr.slice().reverse();
+        }
+
+        function reverseUsers(users) {
+            return users.slice().reverse();
+        }
+
+        document.getElementById("reverseNumbers").addEventListener("click", function() {
+            const nums = [1,2,3,4,5];
+            alert("Reversed numbers: " + reverseNumbers(nums));
+        });
+
+        document.getElementById("reverseUsers").addEventListener("click", function() {
+            const users = ["Luka","Ana","Tom"];
+            alert("Reversed users: " + reverseUsers(users));
+        });
+
+        /********** 12-13: forEach **********/
+        function printNumbers(arr) {
+            arr.forEach(n => console.log(n));
+        }
+
+        function pricesWithTax(arr) {
+            arr.forEach(price => {
+                console.log(price + " + 10% tax = " + (price*1.1).toFixed(2));
+            });
+        }
+
+        document.getElementById("printNumbers").addEventListener("click", function() {
+            const nums = [10,20,30];
+            printNumbers(nums);
+            alert("Check console for printed numbers");
+        });
+
+        document.getElementById("pricesWithTax").addEventListener("click", function() {
+            const prices = [100,200,50];
+            pricesWithTax(prices);
+            alert("Check console for prices with tax");
+        });
+
+    </script>
+</body>
+</html>

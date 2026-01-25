@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Methods: some, every, map, filter</title>
+</head>
+<body>
+    <h2>Array Methods Examples (some, every, map, filter)</h2>
+
+    <!-- Buttons for interactive examples -->
+    <button id="somePositive">Check Some Positive Number</button>
+    <button id="someShortWord">Check Some Short Word</button>
+    <button id="someCompletedTask">Check Some Completed Task</button>
+    <button id="everyPositive">Check Every Positive Number</button>
+    <button id="everyUppercase">Check Every Word Uppercase</button>
+    <button id="everyAdult">Check Every User Adult</button>
+    <button id="mapDouble">Map: Double Numbers</button>
+    <button id="mapFirstLetter">Map: First Letter of Words</button>
+    <button id="mapUsernames">Map: Usernames</button>
+    <button id="filterEven">Filter Even Numbers</button>
+    <button id="filterLongWords">Filter Words Longer Than 5</button>
+    <button id="filterInStock">Filter Products In Stock</button>
+
+    <script>
+        /********** 2-4: some() Examples **********/
+        const numArray = [-3, -1, 0, 5, -7];
+        const wordArray = ["cat","elephant","dog","bird"];
+        const tasks = [
+            {title: "Task 1", completed: false},
+            {title: "Task 2", completed: true},
+            {title: "Task 3", completed: false}
+        ];
+
+        document.getElementById("somePositive").addEventListener("click", function() {
+            const result = numArray.some(n => n > 0);
+            alert("Array contains at least one positive number: " + result);
+        });
+
+        document.getElementById("someShortWord").addEventListener("click", function() {
+            const result = wordArray.some(word => word.length < 4);
+            alert("Array has a word shorter than 4 letters: " + result);
+        });
+
+        document.getElementById("someCompletedTask").addEventListener("click", function() {
+            const result = tasks.some(task => task.completed);
+            alert("Some task is completed: " + result);
+        });
+
+        /********** 5-7: every() Examples **********/
+        const positiveNums = [1,2,3,4,5];
+        const uppercaseWords = ["HELLO","WORLD","JS"];
+        const users = [{age: 20},{age: 25},{age: 18}];
+
+        document.getElementById("everyPositive").addEventListener("click", function() {
+            const result = positiveNums.every(n => n > 0);
+            alert("All numbers > 0: " + result);
+        });
+
+        document.getElementById("everyUppercase").addEventListener("click", function() {
+            const result = uppercaseWords.every(word => word === word.toUpperCase());
+            alert("All words uppercase: " + result);
+        });
+
+        document.getElementById("everyAdult").addEventListener("click", function() {
+            const result = users.every(u => u.age >= 18);
+            alert("All users at least 18: " + result);
+        });
+
+        /********** 8-10: map() Examples **********/
+        const numbers = [1,2,3,4,5];
+        const words = ["apple","banana","cherry"];
+        const userObjs = [{username: "alice"},{username:"bob"},{username:"charlie"}];
+
+        document.getElementById("mapDouble").addEventListener("click", function() {
+            const doubled = numbers.map(n => n*2);
+            alert("Doubled numbers: " + doubled);
+        });
+
+        document.getElementById("mapFirstLetter").addEventListener("click", function() {
+            const firstLetters = words.map(w => w[0]);
+            alert("First letters: " + firstLetters);
+        });
+
+        document.getElementById("mapUsernames").addEventListener("click", function() {
+            const usernames = userObjs.map(u => u.username);
+            alert("Usernames: " + usernames.join(", "));
+        });
+
+        /********** 11-13: filter() Examples **********/
+        const numsForFilter = [1,2,3,4,5,6];
+        const wordFilterArray = ["apple","banana","kiwi","strawberry"];
+        const products = [
+            {id:1,inStock:true},
+            {id:2,inStock:false},
+            {id:3,inStock:true}
+        ];
+
+        document.getElementById("filterEven").addEventListener("click", function() {
+            const evens = numsForFilter.filter(n => n % 2 === 0);
+            alert("Even numbers: " + evens);
+        });
+
+        document.getElementById("filterLongWords").addEventListener("click", function() {
+            const longWords = wordFilterArray.filter(w => w.length > 5);
+            alert("Words longer than 5 letters: " + longWords.join(", "));
+        });
+
+        document.getElementById("filterInStock").addEventListener("click", function() {
+            const inStockProducts = products.filter(p => p.inStock);
+            alert("Products in stock: " + JSON.stringify(inStockProducts));
+        });
+
+    </script>
+</body>
+</html>

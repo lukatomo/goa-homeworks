@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Examples</title>
+</head>
+<body>
+    <h2>Anonymous Functions, IIFEs, Scope Examples</h2>
+    <button id="myButton">Click me</button>
+
+    <script>
+        /********** 2-4: Anonymous Functions **********/
+
+        // 2. Assign an anonymous function to a variable that multiplies two numbers
+        const multiply = function(a, b) {
+            return a * b;
+        };
+        console.log("Multiply 3 * 4 =", multiply(3, 4)); // Output: 12
+
+        // 3. Pass an anonymous function into setInterval() to log a message every 2 seconds
+        const intervalId = setInterval(function() {
+            console.log("Message every 2 seconds");
+        }, 2000);
+
+        // 4. Anonymous function as an event listener for a button click
+        const button = document.getElementById("myButton");
+        button.addEventListener("click", function() {
+            alert("Button was clicked!");
+        });
+
+        /********** 5-7: IIFEs **********/
+
+        // 5. IIFE that prints "Hello, world!"
+        (function() {
+            console.log("Hello, world!");
+        })();
+
+        // 6. IIFE that calculates the square of a given number
+        (function(num) {
+            console.log("Square of", num, "is", num * num);
+        })(5);
+
+        // 7. IIFE that sums an array of numbers
+        (function(arr) {
+            let sum = arr.reduce((total, num) => total + num, 0);
+            console.log("Sum of array elements:", sum);
+        })([1, 2, 3, 4, 5]);
+
+        /********** 9-11: Scope Examples **********/
+
+        // 9. Function with a local variable and attempt to access it outside
+        function localVariableExample() {
+            let localVar = "I am local";
+            console.log("Inside function:", localVar);
+        }
+        localVariableExample();
+        // console.log(localVar); // ❌ Error: localVar is not defined
+        console.log("Outside function: Cannot access localVar (it's local to the function)");
+
+        // 10. Nested functions where inner modifies outer's variable
+        function outerFunction() {
+            let outerVar = 10;
+            console.log("Before innerFunction call:", outerVar);
+
+            function innerFunction() {
+                outerVar += 5; // modifying outer variable
+            }
+
+            innerFunction();
+            console.log("After innerFunction call:", outerVar);
+        }
+        outerFunction();
+
+        // 11. Demonstrate var, let, and const in terms of scope
+        function scopeDemo() {
+            if (true) {
+                var varVar = "I am var";     // function-scoped
+                let letVar = "I am let";     // block-scoped
+                const constVar = "I am const"; // block-scoped
+                console.log("Inside block:", varVar, letVar, constVar);
+            }
+
+            console.log("Outside block, inside function, varVar:", varVar); // ✅ works
+            // console.log(letVar); // ❌ Error: letVar is not defined
+            // console.log(constVar); // ❌ Error: constVar is not defined
+        }
+        scopeDemo();
+
+    </script>
+</body>
+</html>

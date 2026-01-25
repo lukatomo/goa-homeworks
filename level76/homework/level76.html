@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS eval, parseFloat, parseInt Examples</title>
+</head>
+<body>
+    <h2>JS eval, parseFloat, parseInt Examples</h2>
+    <button id="calculatorButton">Run Calculator Prompt</button>
+
+    <script>
+        /********** 2-6: eval() Examples **********/
+
+        // 2. Take a string input from user and evaluate it
+        document.getElementById("calculatorButton").addEventListener("click", function() {
+            const userInput = prompt("Enter a math expression (e.g., 3 + 5 * 2):");
+            try {
+                const result = eval(userInput);
+                alert("Result: " + result);
+            } catch (e) {
+                alert("Invalid expression!");
+            }
+        });
+
+        // 3. Store a string and use eval()
+        const expression = "10 + 5";
+        console.log(expression + " = " + eval(expression)); // Output: 15
+
+        // 4. Use eval() to check condition
+        const condition = "10 > 3";
+        console.log(condition + " =", eval(condition)); // Output: true
+
+        // 5. Test eval() with invalid input
+        try {
+            console.log(eval("2 ++ 3")); // ❌ SyntaxError
+        } catch(e) {
+            console.log("Error with invalid input '2 ++ 3':", e.message);
+        }
+
+        /********** 7-11: parseFloat() Examples **********/
+
+        // 6. Ask user for a number (as text) and convert
+        const userNumber = prompt("Enter a number:");
+        const floatNumber = parseFloat(userNumber);
+        console.log("parseFloat user input:", floatNumber);
+
+        // 7. Convert string "3.14" to number
+        console.log('parseFloat("3.14") =', parseFloat("3.14")); // 3.14
+
+        // 8. parseFloat on "42abc"
+        console.log('parseFloat("42abc") =', parseFloat("42abc")); // 42
+
+        // 9. parseFloat on "abc42"
+        console.log('parseFloat("abc42") =', parseFloat("abc42")); // NaN
+
+        // 10. Convert multiple strings and sum
+        const nums = ["10.5", "20.2", "30.8"].map(n => parseFloat(n));
+        const sumFloats = nums.reduce((total, n) => total + n, 0);
+        console.log("Sum of [10.5,20.2,30.8] =", sumFloats); // 61.5
+
+        /********** 12-15: parseInt() Examples **********/
+
+        // 11. parseInt("25.9")
+        console.log('parseInt("25.9") =', parseInt("25.9")); // 25
+
+        // 12. parseInt("100abc")
+        console.log('parseInt("100abc") =', parseInt("100abc")); // 100
+
+        // 13. parseInt("abc100")
+        console.log('parseInt("abc100") =', parseInt("abc100")); // NaN
+
+        // 14. Convert several strings to integers and sum
+        const intStrings = ["10", "20", "30"];
+        const intSum = intStrings.map(n => parseInt(n)).reduce((a,b) => a+b, 0);
+        console.log("Sum of [10,20,30] =", intSum); // 60
+
+    </script>
+</body>
+</html>

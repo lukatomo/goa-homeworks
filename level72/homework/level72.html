@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Moving Box</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background-color: #111;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 50px;
+      height: 50px;
+      background-color: green;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box"></div>
+
+  <script>
+    const box = document.querySelector(".box");
+
+    let x = 0;
+    let y = 0;
+    let step = 5;
+
+    let direction = "right";
+
+    setInterval(() => {
+      if (direction === "right") {
+        x += step;
+        if (x + 50 >= window.innerWidth) {
+          direction = "up";
+        }
+      }
+
+      else if (direction === "up") {
+        y += step;
+        if (y + 50 >= window.innerHeight) {
+          direction = "left";
+        }
+      }
+
+      else if (direction === "left") {
+        x -= step;
+        if (x <= 0) {
+          direction = "down";
+        }
+      }
+
+      else if (direction === "down") {
+        y -= step;
+        if (y <= 0) {
+          direction = "right";
+        }
+      }
+
+      box.style.left = x + "px";
+      box.style.bottom = y + "px";
+
+    }, 30);
+  </script>
+
+</body>
+</html>

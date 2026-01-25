@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Array Methods Examples 2-15</title>
+</head>
+<body>
+    <h2>Array Methods Examples (push, pop, shift, slice, splice, join, sort)</h2>
+
+    <!-- Buttons for interactive examples -->
+    <button id="pushFruits">Push Fruits</button>
+    <button id="pushNumber">Push Number</button>
+    <button id="popColor">Pop Color</button>
+    <button id="popAnimals">Pop Animals Twice</button>
+    <button id="shiftCity">Shift City</button>
+    <button id="shiftNumbers">Shift Numbers Twice</button>
+    <button id="sliceAnimals">Slice First Two Animals</button>
+    <button id="sliceNumbers">Slice Middle Numbers</button>
+    <button id="spliceFruit">Splice Fruit</button>
+    <button id="spliceColor">Insert Color with Splice</button>
+    <button id="joinWords">Join Words with Space</button>
+    <button id="joinNumbers">Join Numbers with Dash</button>
+    <button id="sortNumbers">Sort Numbers</button>
+    <button id="sortWords">Sort Words Alphabetically</button>
+
+    <script>
+        /********** 2-3: push **********/
+        document.getElementById("pushFruits").addEventListener("click", function() {
+            const fruits = [];
+            fruits.push("apple");
+            fruits.push("banana");
+            alert("Array after push: " + fruits.join(", "));
+        });
+
+        document.getElementById("pushNumber").addEventListener("click", function() {
+            const numbers = [1,2];
+            numbers.push(3);
+            alert("Array after push: " + numbers.join(", "));
+        });
+
+        /********** 4-5: pop **********/
+        document.getElementById("popColor").addEventListener("click", function() {
+            const colors = ["red","green","blue"];
+            const removed = colors.pop();
+            alert("Removed color: " + removed + "\nArray now: " + colors.join(", "));
+        });
+
+        document.getElementById("popAnimals").addEventListener("click", function() {
+            const animals = ["cat","dog","bird","fish"];
+            const removed1 = animals.pop();
+            const removed2 = animals.pop();
+            alert("Removed animals: " + removed1 + ", " + removed2 + "\nArray now: " + animals.join(", "));
+        });
+
+        /********** 6-7: shift **********/
+        document.getElementById("shiftCity").addEventListener("click", function() {
+            const cities = ["Paris","London","Tokyo"];
+            const removed = cities.shift();
+            alert("Removed city: " + removed + "\nArray now: " + cities.join(", "));
+        });
+
+        document.getElementById("shiftNumbers").addEventListener("click", function() {
+            const numbers = [10,20,30,40];
+            const removed1 = numbers.shift();
+            const removed2 = numbers.shift();
+            alert("Removed numbers: " + removed1 + ", " + removed2 + "\nArray now: " + numbers.join(", "));
+        });
+
+        /********** 8-9: slice **********/
+        document.getElementById("sliceAnimals").addEventListener("click", function() {
+            const animals = ["cat","dog","bird","fish","lion"];
+            const firstTwo = animals.slice(0,2);
+            alert("Sliced array: " + firstTwo.join(", "));
+        });
+
+        document.getElementById("sliceNumbers").addEventListener("click", function() {
+            const numbers = [1,2,3,4,5,6];
+            const middleTwo = numbers.slice(2,4);
+            alert("Sliced middle numbers: " + middleTwo.join(", "));
+        });
+
+        /********** 10-11: splice **********/
+        document.getElementById("spliceFruit").addEventListener("click", function() {
+            const fruits = ["apple","banana","cherry","date","fig"];
+            const removed = fruits.splice(2,1); // remove one from middle
+            alert("Removed fruit: " + removed + "\nUpdated array: " + fruits.join(", "));
+        });
+
+        document.getElementById("spliceColor").addEventListener("click", function() {
+            const colors = ["red","green","blue","yellow"];
+            colors.splice(1,0,"orange"); // insert at index 1
+            alert("Array after insertion: " + colors.join(", "));
+        });
+
+        /********** 12-13: join **********/
+        document.getElementById("joinWords").addEventListener("click", function() {
+            const words = ["Hello","world","JS"];
+            const result = words.join(" ");
+            alert("Joined string: " + result);
+        });
+
+        document.getElementById("joinNumbers").addEventListener("click", function() {
+            const numbers = [10,20,30,40];
+            const result = numbers.join("-");
+            alert("Joined numbers: " + result);
+        });
+
+        /********** 14-15: sort **********/
+        document.getElementById("sortNumbers").addEventListener("click", function() {
+            const numbers = [5,2,8,1,4];
+            numbers.sort((a,b)=>a-b);
+            alert("Sorted numbers: " + numbers.join(", "));
+        });
+
+        document.getElementById("sortWords").addEventListener("click", function() {
+            const words = ["banana","apple","date","cherry"];
+            words.sort();
+            alert("Sorted words: " + words.join(", "));
+        });
+    </script>
+</body>
+</html>

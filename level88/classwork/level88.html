@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class Assignment</title>
+</head>
+<body>
+
+<h1>Class Assignment Demo</h1>
+<button id="incrementBtn">Click me!</button>
+
+<script>
+// ======================
+// 1. Timeout 5 წამში
+setTimeout(() => {
+    console.log("Full Name: Luka Tomoshevski");
+}, 5000);
+
+// ======================
+// 2. Interval 500 მილიწამში
+let intervalId = setInterval(() => {
+    console.log("Name: Luka");
+}, 500);
+
+// ======================
+// 3. Button click + localStorage
+let counter = localStorage.getItem("counter") ? Number(localStorage.getItem("counter")) : 0;
+
+const btn = document.getElementById("incrementBtn");
+btn.addEventListener("click", () => {
+    counter++;
+    console.log("Counter value:", counter);
+    localStorage.setItem("counter", counter);
+});
+
+// ======================
+// 4. Favourite movies + localStorage + setTimeout
+let favoriteMovies = ["Inception", "Interstellar", "Titanic", "Avatar"];
+// JSON.stringify და localStorage-ში შენახვა
+localStorage.setItem("favoriteMovies", JSON.stringify(favoriteMovies));
+
+// 2 წამში წამოღება და კონსოლში დაბეჭდვა
+setTimeout(() => {
+    let moviesFromStorage = JSON.parse(localStorage.getItem("favoriteMovies"));
+    console.log("Favourite Movies from localStorage:", moviesFromStorage);
+}, 2000);
+
+</script>
+</body>
+</html>

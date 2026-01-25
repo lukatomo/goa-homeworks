@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript & Terminal Examples</title>
+</head>
+<body>
+    <h2>JS & Terminal Examples All-in-One</h2>
+
+    <button id="evalPrompt">Run Eval Calculator</button>
+    <button id="anonymousButton">Click for Anonymous Function Alert</button>
+
+    <script>
+        /********** 2-4: Anonymous Functions **********/
+        console.log("=== Anonymous Functions ===");
+
+        // Multiply function
+        const multiply = function(a, b) {
+            return a * b;
+        };
+        console.log("3 * 4 =", multiply(3,4));
+
+        // setInterval message
+        const intervalId = setInterval(function() {
+            console.log("Message every 2 seconds");
+        }, 2000);
+
+        // Anonymous function for button
+        const anonButton = document.getElementById("anonymousButton");
+        anonButton.addEventListener("click", function() {
+            alert("Anonymous button clicked!");
+        });
+
+        /********** 5-7: IIFE Examples **********/
+        console.log("=== IIFE Examples ===");
+
+        // Hello World IIFE
+        (function() {
+            console.log("Hello, world!");
+        })();
+
+        // Square IIFE
+        (function(num) {
+            console.log("Square of", num, "is", num*num);
+        })(5);
+
+        // Sum of array IIFE
+        (function(arr) {
+            const sum = arr.reduce((total,n) => total+n, 0);
+            console.log("Sum of array:", sum);
+        })([1,2,3,4,5]);
+
+        /********** 9-11: Scope Examples **********/
+        console.log("=== Scope Examples ===");
+
+        function localVarExample() {
+            let localVar = "I am local";
+            console.log("Inside function:", localVar);
+        }
+        localVarExample();
+        console.log("Outside function: Cannot access localVar");
+
+        function outerFunction() {
+            let outerVar = 10;
+            console.log("Before innerFunction call:", outerVar);
+
+            function innerFunction() {
+                outerVar += 5;
+            }
+
+            innerFunction();
+            console.log("After innerFunction call:", outerVar);
+        }
+        outerFunction();
+
+        function scopeDemo() {
+            if (true) {
+                var varVar = "var";     // function-scoped
+                let letVar = "let";     // block-scoped
+                const constVar = "const"; // block-scoped
+                console.log("Inside block:", varVar, letVar, constVar);
+            }
+            console.log("Outside block, varVar:", varVar); // works
+            console.log("Outside block, letVar / constVar not accessible");
+        }
+        scopeDemo();
+
+        /********** 2-6: eval Examples **********/
+        console.log("=== eval Examples ===");
+        const expression = "10 + 5";
+        console.log(expression + " =", eval(expression));
+
+        const condition = "10 > 3";
+        console.log(condition + " =", eval(condition));
+
+        try {
+            console.log(eval("2 ++ 3"));
+        } catch(e) {
+            console.log("Error with '2 ++ 3':", e.message);
+        }
+
+        document.getElementById("evalPrompt").addEventListener("click", function() {
+            const userInput = prompt("Enter a math expression (e.g., 3 + 5 * 2):");
+            try {
+                alert("Result: " + eval(userInput));
+            } catch(e) {
+                alert("Invalid expression!");
+            }
+        });
+
+        /********** 7-11: parseFloat Examples **********/
+        console.log("=== parseFloat Examples ===");
+        console.log('parseFloat("3.14") =', parseFloat("3.14"));
+        console.log('parseFloat("42abc") =', parseFloat("42abc"));
+        console.log('parseFloat("abc42") =', parseFloat("abc42"));
+
+        const floatNums = ["10.5","20.2","30.8"].map(n => parseFloat(n));
+        console.log("Sum of floats:", floatNums.reduce((a,b)=>a+b,0));
+
+        /********** 12-15: parseInt Examples **********/
+        console.log("=== parseInt Examples ===");
+        console.log('parseInt("25.9") =', parseInt("25.9"));
+        console.log('parseInt("100abc") =', parseInt("100abc"));
+        console.log('parseInt("abc100") =', parseInt("abc100"));
+
+        const intNums = ["10","20","30"].map(n=>parseInt(n));
+        console.log("Sum of integers:", intNums.reduce((a,b)=>a+b,0));
+
+        /********** Node.js / Terminal Commands (Instructions) **********/
+        console.log("=== Terminal / Node.js Examples ===");
+        console.log("1. Show files: ls -l  (Linux/macOS) / dir (Windows)");
+        console.log("2. Clear terminal: clear / cls (Windows)");
+        console.log("3. Go home: cd ~  (Linux/macOS) / cd %HOMEPATH% (Windows)");
+        console.log("4. Go to Documents: cd ~/Documents / cd %HOMEPATH%\\Documents");
+        console.log("5. Go one level up: cd ..");
+        console.log('6. Create JS file: echo "console.log(\'Hello Node\');" > app.js');
+        console.log("7. Run Node.js file: node app.js");
+        console.log("8. Node version: node -v");
+        console.log("9. Create directory: mkdir projects");
+        console.log("10. Create & delete file: touch test.txt / rm test.txt (Linux), type nul > test.txt / del test.txt (Windows)");
+
+    </script>
+</body>
+</html>

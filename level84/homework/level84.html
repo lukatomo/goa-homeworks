@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Math Methods Examples</title>
+</head>
+<body>
+    <h2>Math Methods Examples</h2>
+
+    <button id="absNumber">Math.abs of Negative Number</button>
+    <button id="compareAbs">Compare Absolute Values</button>
+    <button id="floorDecimal">Math.floor Decimal</button>
+    <button id="floorRemove">Math.floor Remove Decimal</button>
+    <button id="ceilDecimal">Math.ceil Decimal</button>
+    <button id="ceilNext">Math.ceil Next Whole</button>
+    <button id="roundNearest">Math.round Nearest</button>
+    <button id="roundUpDown">Math.round Up/Down</button>
+    <button id="powerTwo">Math.pow to 2</button>
+    <button id="truncNumber">Math.trunc Number</button>
+    <button id="minNumber">Math.min Example</button>
+    <button id="maxNumber">Math.max Example</button>
+
+    <script>
+        /********** 2-3: Math.abs **********/
+        document.getElementById("absNumber").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a negative number:"));
+            alert("Absolute value: " + Math.abs(num));
+        });
+
+        document.getElementById("compareAbs").addEventListener("click", function() {
+            const num1 = parseFloat(prompt("Enter first number (positive):"));
+            const num2 = parseFloat(prompt("Enter second number (negative):"));
+            const largerAbs = Math.abs(num1) > Math.abs(num2) ? num1 : num2;
+            alert("Number with larger absolute value: " + largerAbs);
+        });
+
+        /********** 4-5: Math.floor **********/
+        document.getElementById("floorDecimal").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a decimal number:"));
+            alert("Rounded down with Math.floor: " + Math.floor(num));
+        });
+
+        document.getElementById("floorRemove").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a number with decimals:"));
+            alert("Decimal part removed with Math.floor: " + Math.floor(num));
+        });
+
+        /********** 6-7: Math.ceil **********/
+        document.getElementById("ceilDecimal").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a decimal number:"));
+            alert("Rounded up with Math.ceil: " + Math.ceil(num));
+        });
+
+        document.getElementById("ceilNext").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a decimal number:"));
+            alert("Next whole number with Math.ceil: " + Math.ceil(num));
+        });
+
+        /********** 8-9: Math.round **********/
+        document.getElementById("roundNearest").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a decimal number:"));
+            alert("Rounded to nearest whole number: " + Math.round(num));
+        });
+
+        document.getElementById("roundUpDown").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a decimal number:"));
+            const rounded = Math.round(num);
+            alert("Decimal " + num + " rounds " + (rounded >= num ? "up" : "down") + " to " + rounded);
+        });
+
+        /********** 11: Math.pow **********/
+        document.getElementById("powerTwo").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a number to raise to power 2:"));
+            alert(num + " ^ 2 = " + Math.pow(num,2));
+        });
+
+        /********** 12: Math.trunc **********/
+        document.getElementById("truncNumber").addEventListener("click", function() {
+            const num = parseFloat(prompt("Enter a number with decimals:"));
+            alert("Truncated number: " + Math.trunc(num));
+        });
+
+        /********** 13: Math.min **********/
+        document.getElementById("minNumber").addEventListener("click", function() {
+            const numbers = [5, 12, 3, 8];
+            alert("Smallest number: " + Math.min(...numbers));
+        });
+
+        /********** 14: Math.max **********/
+        document.getElementById("maxNumber").addEventListener("click", function() {
+            const numbers = [5, 12, 3, 8];
+            alert("Largest number: " + Math.max(...numbers));
+        });
+    </script>
+</body>
+</html>

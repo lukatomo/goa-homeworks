@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String Manipulation Examples</title>
+</head>
+<body>
+    <h2>String Manipulation Examples (3-7)</h2>
+
+    <button id="findChar">Find First Character Index</button>
+    <button id="findLastChar">Find Last Character Index</button>
+    <button id="replaceWord">Replace a Word</button>
+    <button id="replaceSpaces">Replace All Spaces</button>
+    <button id="extractFirstWord">Extract First Word</button>
+
+    <script>
+        /********** 3. Find a Character (first occurrence) **********/
+        document.getElementById("findChar").addEventListener("click", function() {
+            const str = prompt("Enter a string:");
+            const char = prompt("Enter a character to find:");
+            const index = str.indexOf(char);
+            if(index === -1) {
+                alert(`Character "${char}" not found.`);
+            } else {
+                alert(`First occurrence of "${char}" is at index: ${index}`);
+            }
+        });
+
+        /********** 4. Find Last Character Position **********/
+        document.getElementById("findLastChar").addEventListener("click", function() {
+            const str = prompt("Enter a string:");
+            const char = prompt("Enter a character to find the last occurrence of:");
+            const index = str.lastIndexOf(char);
+            if(index === -1) {
+                alert(`Character "${char}" not found.`);
+            } else {
+                alert(`Last occurrence of "${char}" is at index: ${index}`);
+            }
+        });
+
+        /********** 5. Replace a Word **********/
+        document.getElementById("replaceWord").addEventListener("click", function() {
+            const sentence = prompt("Enter a sentence:");
+            const wordToReplace = prompt("Enter the word to replace:");
+            const newWord = prompt("Enter the new word:");
+            const newSentence = sentence.replace(wordToReplace, newWord);
+            alert("Updated sentence: " + newSentence);
+        });
+
+        /********** 6. Replace All Spaces **********/
+        document.getElementById("replaceSpaces").addEventListener("click", function() {
+            const sentence = prompt("Enter a sentence:");
+            const replaced = sentence.replaceAll(" ", "_");
+            alert("Sentence with underscores: " + replaced);
+        });
+
+        /********** 7. Extract First Word **********/
+        document.getElementById("extractFirstWord").addEventListener("click", function() {
+            const sentence = prompt("Enter a sentence:");
+            const firstSpace = sentence.indexOf(" ");
+            const firstWord = firstSpace === -1 ? sentence : sentence.slice(0, firstSpace);
+            alert("First word: " + firstWord);
+        });
+    </script>
+</body>
+</html>
