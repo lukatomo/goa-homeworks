@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <style>
+    /* --- ძირითადი სტილი --- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    header {
+      background-color: #4CAF50;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 10px 0;
+    }
+
+    /* ნავიგაციის სტილი */
+    nav {
+      margin-bottom: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #ffeb3b;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: 20px auto;
+      background-color: white;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+
+    .team {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .member {
+      flex: 1 1 250px;
+      background-color: #e8f5e9;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.3s;
+    }
+
+    .member:hover {
+      transform: scale(1.05);
+    }
+
+    .member img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .member h3 {
+      margin: 10px 0 5px;
+    }
+
+    .member p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      background-color: #4CAF50;
+      color: white;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .team {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>About Us</h1>
+    <p>Learn more about our amazing team!</p>
+    <!-- ნავიგაციის ბარი -->
+    <nav>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h2>Our Team</h2>
+    <div class="team">
+      <div class="member">
+        <img src="https://scontent.ftbs5-2.fna.fbcdn.net/v/t39.30808-1/469543301_580509864384017_1358379517113000755_n.jpg?stp=c120.0.480.480a_dst-jpg_s200x200_tt6&_nc_cat=103&ccb=1-7&_nc_sid=e99d92&_nc_ohc=7rPvQJda03IQ7kNvwHIiyQq&_nc_oc=AdkFQRBIFfQEROz6gBXLnvOz3N9Xq1AOznKD6-DHNiH2j8TyaIWseM1JjC_UPEda11M&_nc_zt=24&_nc_ht=scontent.ftbs5-2.fna&_nc_gid=umavqz50oCKvm0HLm7HVzg&oh=00_Aft1J3-wiTV6VRfsRO5C3oCZISVgU4Ji5IXtUjfqxvHoDg&oe=6984F2F8" alt="Member 1">
+        <h3>Luka Tomoshevski</h3>
+        <p>Founder & CEO. Passionate about technology and innovation.</p>
+      </div>
+      <div class="member">
+        <img src="https://scontent.ftbs4-2.fna.fbcdn.net/v/t39.30808-1/568316982_834712262340831_6469118763942612952_n.jpg?stp=c360.0.1365.1365a_dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=e99d92&_nc_ohc=LA2Yra2IiowQ7kNvwE_rONB&_nc_oc=AdnET2dN_Ptvb5ZkBFC14h_kYqUfU49X9tonspfoyrJTIV3yCCWIqVoKtQR-DJ6cyKg&_nc_zt=24&_nc_ht=scontent.ftbs4-2.fna&_nc_gid=ucbspSxh4Bs6ruqHNszxlQ&oh=00_Afs4oMMAx97h5bkGR5MrHCD7Q6pdnrg1SwUZBZnx1Gu1Mw&oe=6985553F" alt="Member 2">
+        <h3>ლუკა სუარიშვილი</h3>
+        <p>Lead Designer. Loves creating clean and modern interfaces.</p>
+      </div>
+      <div class="member">
+        <img src="https://scontent.ftbs5-4.fna.fbcdn.net/v/t39.30808-1/572956420_1595736891409666_7403771364631525187_n.jpg?stp=c160.0.640.640a_dst-jpg_s200x200_tt6&_nc_cat=101&ccb=1-7&_nc_sid=e99d92&_nc_ohc=yJxfa3Mp_IkQ7kNvwEsgRcT&_nc_oc=AdkkgVvorIzEqSMhrk7Be3IgrKmCc0Ji-6v9b84ef-dvbwcirDywiF2NX4aY2hiRiM0&_nc_zt=24&_nc_ht=scontent.ftbs5-4.fna&_nc_gid=DSWmwzeq5DUB7FCaBG-M9w&oh=00_AfuH__rF4kQd0a-Pe-GLzIS2095NKDNIXXT-YyXQ-Usy6Q&oe=698506AD" alt="Member 3">
+        <h3>giorgi kevxishvili</h3>
+        <p>Developer. Enjoys solving complex problems with code.</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2026 Our Company. All rights reserved.
+  </footer>
+
+  <script>
+    // პატარა JS ფუნქციონალი - კლიკზე member info გაშლის
+    const members = document.querySelectorAll('.member');
+    members.forEach(member => {
+      member.addEventListener('click', () => {
+        alert(`Hello! This is ${member.querySelector('h3').innerText}.`);
+      });
+    });
+  </script>
+</body>
+</html>
