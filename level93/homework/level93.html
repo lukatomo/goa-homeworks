@@ -1,0 +1,89 @@
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Products</title>
+
+  <style>
+    body {
+      font-family: Arial;
+      background: #f5f5f5;
+      margin: 0;
+    }
+
+    #products {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      width: 250px;
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+      object-fit: contain;
+    }
+
+    .card h2 {
+      font-size: 16px;
+    }
+
+    .card p {
+      margin: 5px 0;
+    }
+  </style>
+
+</head>
+<body>
+
+  <section id="products"></section>
+
+  <script>
+    const apiLink = "https://fakestoreapi.com/products";
+    const productsSection = document.getElementById("products");
+
+    fetch(apiLink)
+      .then(res => res.json())
+      .then(data => {
+        data.forEach(product => {
+
+          const card = document.createElement("div");
+          card.classList.add("card");
+
+          card.innerHTML = `
+            <img src="${product.image}" alt="">
+            <h2>${product.title}</h2>
+            <p><b>${product.price}$</b></p>
+            <p>${product.category}</p>
+          `;
+
+          productsSection.appendChild(card);
+        });
+      });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+PS C:\Users\User\Desktop\goa homeworks> npm create vite@latest
+Need to install the following packages:
+create-vite@9.0.6
+Ok to proceed? (y) y
+
+> npx
+> create-vite
+
+│
+◇  Project name:
+│  level104
+│
+◇  Select a framework:
+│  React
+│
+◇  Select a variant:
+│  JavaScript + React Compiler
+│
+◇  Install with npm and start now?
+│  Yes
+│
+◇  Scaffolding project in C:\Users\User\Desktop\goa homeworks\level104...
+│
+◇  Installing dependencies with npm...
+
+added 148 packages, and audited 149 packages in 29s
+
+32 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+│
+◇  Starting dev server...
+
+> level104@0.0.0 dev
+> vite
+
+
+  VITE v8.0.10  ready in 1652 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+
+ *  History restored 
+
+PS C:\Users\User\Desktop\goa homeworks> npm run dev
+npm error syscall open
+npm error path C:\Users\User\Desktop\goa homeworks\package.json
+npm error errno -4058
+npm error enoent Could not read package.json: Error: ENOENT: no such file or directory, open 'C:\Users\User\Desktop\goa homeworks\package.json'
+npm error enoent
+npm error A complete log of this run can be found in: C:\Users\User\AppData\Local\npm-cache\_logs\2026-05-08T10_00_13_568Z-debug-0.log
+PS C:\Users\User\Desktop\goa homeworks> npm rundev 
+Unknown command: "rundev"
+
+To see a list of supported npm commands, run:
+  npm help
+PS C:\Users\User\Desktop\goa homeworks> npm help
+npm <command>
+
+Usage:
+
+npm install        install all the dependencies in your project
+npm install <foo>  add the <foo> dependency to your project
+npm test           run this project's tests
+npm run <foo>      run the script named <foo>
+npm <command> -h   quick help on <command>
+npm -l             display usage info for all commands
+npm help <term>    search for help on <term> (in a browser)
+npm help npm       more involved overview (in a browser)
+
+All commands:
+
+    access, adduser, audit, bugs, cache, ci, completion,
+    config, dedupe, deprecate, diff, dist-tag, docs, doctor,
+    edit, exec, explain, explore, find-dupes, fund, get, help,
+    help-search, init, install, install-ci-test, install-test,
+    link, ll, login, logout, ls, org, outdated, owner, pack,
+    ping, pkg, prefix, profile, prune, publish, query, rebuild,
+    repo, restart, root, run, sbom, search, set, shrinkwrap,
+    star, stars, start, stop, team, test, token, trust,
+    undeprecate, uninstall, unpublish, unstar, update, version,
+    view, whoami
+
+or on the command line via: npm <command> --key=value
+
+More configuration info: npm help config
+Configuration fields: npm help 7 config
+
+npm@11.11.1 C:\Users\User\AppData\Roaming\npm\node_modules\npm
+PS C:\Users\User\Desktop\goa homeworks> npm help 7 config
+PS C:\Users\User\Desktop\goa homeworks> npm dry-run
+Unknown command: "dry-run"
+
+To see a list of supported npm commands, run:
+  npm help
+PS C:\Users\User\Desktop\goa homeworks> 
