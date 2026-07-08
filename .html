@@ -1,0 +1,412 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Catch the Box 🎮</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #222;
+    color: white;
+    margin: 0;
+}
+
+h1{
+    margin-top: 20px;
+}
+
+#game-area{
+    width: 600px;
+    height: 400px;
+    border: 3px solid white;
+    margin: 20px auto;
+    position: relative;
+    background: #333;
+}
+
+#box{
+    width: 50px;
+    height: 50px;
+    background: crimson;
+    position: absolute;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.1s;
+}
+</style>
+</head>
+<body>
+
+<h1>Catch the Box 🎮</h1>
+<p>Score: <span id="score">0</span></p>
+
+<div id="game-area">
+    <div id="box"></div>
+</div>
+
+<script>
+const box = document.getElementById("box");
+const scoreText = document.getElementById("score");
+
+let score = 0;
+
+function moveBox() {
+    const gameArea = document.getElementById("game-area");
+
+    const maxX = gameArea.clientWidth - box.clientWidth;
+    const maxY = gameArea.clientHeight - box.clientHeight;
+
+    const x = Math.random() * maxX;
+    const y = Math.random() * maxY;
+
+    box.style.left = x + "px";
+    box.style.top = y + "px";
+}
+
+box.addEventListener("click", () => {
+    score++;
+    scoreText.textContent = score;
+    moveBox();
+});
+
+moveBox();
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Geometry Dash</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    background:#111;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    overflow:hidden;
+    font-family:Arial,sans-serif;
+}
+
+#game{
+    width:800px;
+    height:300px;
+    background:#1e1e1e;
+    position:relative;
+    overflow:hidden;
+    border:4px solid #00ffff;
+}
+
+#player{
+    width:40px;
+    height:40px;
+    background:#00ffff;
+    position:absolute;
+    left:100px;
+    bottom:0;
+    transform:rotate(0deg);
+}
+
+.obstacle{
+    width:40px;
+    height:60px;
+    background:#ff0055;
+    position:absolute;
+    bottom:0;
+    right:-50px;
+}
+
+#score{
+    position:absolute;
+    top:10px;
+    left:10px;
+    color:white;
+    font-size:24px;
+}
+</style>
+</head>
+<body>
+
+<div id="game">
+    <div id="score">0</div>
+    <div id="player"></div>
+</div>
+
+<script>
+const game = document.getElementById("game");
+const player = document.getElementById("player");
+const scoreText = document.getElementById("score");
+
+let y = 0;
+let velocity = 0;
+let gravity = 0.8;
+let jumping = false;
+let score = 0;
+let gameOver = false;
+
+function jump(){
+    if(y === 0){
+        velocity = 14;
+    }
+}
+
+document.addEventListener("keydown",e=>{
+    if(e.code === "Space"){
+        jump();
+    }
+});
+
+function createObstacle(){
+    const obs = document.createElement("div");
+    obs.classList.add("obstacle");
+    game.appendChild(obs);
+
+    let pos = 800;
+
+    const move = setInterval(()=>{
+        if(gameOver){
+            clearInterval(move);
+            return;
+        }
+
+        pos -= 6;
+        obs.style.left = pos + "px";
+
+        const playerRect = player.getBoundingClientRect();
+        const obsRect = obs.getBoundingClientRect();
+
+        if(
+            playerRect.left < obsRect.right &&
+            playerRect.right > obsRect.left &&
+            playerRect.bottom > obsRect.top &&
+            playerRect.top < obsRect.bottom
+        ){
+            gameOver = true;
+            alert("Game Over! Score: " + score);
+            location.reload();
+        }
+
+        if(pos < -60){
+            score++;
+            scoreText.textContent = score;
+            obs.remove();
+            clearInterval(move);
+        }
+    },20);
+}
+
+setInterval(()=>{
+    if(!gameOver){
+        createObstacle();
+    }
+},1500);
+
+function update(){
+    if(gameOver) return;
+
+    velocity -= gravity;
+    y += velocity;
+
+    if(y < 0){
+        y = 0;
+        velocity = 0;
+    }
+
+    player.style.bottom = y + "px";
+    player.style.transform = `rotate(${Date.now()/5}deg)`;
+
+    requestAnimationFrame(update);
+}
+
+update();
+</script>
+
+</body>
+</html> -->
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mini Obby</title>
+
+<style>
+body{
+    margin:0;
+    background:#87ceeb;
+    overflow:hidden;
+}
+
+#game{
+    width:100vw;
+    height:100vh;
+    position:relative;
+}
+
+.platform{
+    position:absolute;
+    background:#444;
+}
+
+#player{
+    width:40px;
+    height:40px;
+    background:dodgerblue;
+    position:absolute;
+    left:50px;
+    top:500px;
+}
+
+.lava{
+    position:absolute;
+    background:red;
+}
+
+#finish{
+    position:absolute;
+    background:lime;
+}
+</style>
+</head>
+<body>
+
+<div id="game">
+    <div id="player"></div>
+
+    <div class="platform" style="left:0;top:550px;width:250px;height:30px;"></div>
+    <div class="platform" style="left:320px;top:470px;width:150px;height:30px;"></div>
+    <div class="platform" style="left:550px;top:390px;width:150px;height:30px;"></div>
+    <div class="platform" style="left:800px;top:300px;width:180px;height:30px;"></div>
+
+    <div class="lava" style="left:250px;top:550px;width:70px;height:30px;"></div>
+    <div class="lava" style="left:470px;top:470px;width:80px;height:30px;"></div>
+    <div class="lava" style="left:700px;top:390px;width:100px;height:30px;"></div>
+
+    <div id="finish" style="left:900px;top:240px;width:60px;height:60px;"></div>
+</div>
+
+<script>
+const player = document.getElementById("player");
+
+let x = 50;
+let y = 500;
+let vx = 0;
+let vy = 0;
+let onGround = false;
+
+const keys = {};
+
+document.addEventListener("keydown",e=>{
+    keys[e.key] = true;
+
+    if((e.key===" " || e.key==="ArrowUp") && onGround){
+        vy = -15;
+    }
+});
+
+document.addEventListener("keyup",e=>{
+    keys[e.key] = false;
+});
+
+function resetGame(){
+    x = 50;
+    y = 500;
+    vx = 0;
+    vy = 0;
+}
+
+function update(){
+
+    if(keys["ArrowLeft"]) x -= 5;
+    if(keys["ArrowRight"]) x += 5;
+
+    vy += 0.8;
+    y += vy;
+
+    onGround = false;
+
+    document.querySelectorAll(".platform").forEach(platform=>{
+        const p = platform.getBoundingClientRect();
+
+        if(
+            x + 40 > p.left &&
+            x < p.right &&
+            y + 40 > p.top &&
+            y + 40 < p.top + 20 &&
+            vy >= 0
+        ){
+            y = p.top - 40;
+            vy = 0;
+            onGround = true;
+        }
+    });
+
+    document.querySelectorAll(".lava").forEach(lava=>{
+        const l = lava.getBoundingClientRect();
+
+        if(
+            x + 40 > l.left &&
+            x < l.right &&
+            y + 40 > l.top &&
+            y < l.bottom
+        ){
+            alert("💀 You Died!");
+            resetGame();
+        }
+    });
+
+    const finish = document.getElementById("finish").getBoundingClientRect();
+
+    if(
+        x + 40 > finish.left &&
+        x < finish.right &&
+        y + 40 > finish.top &&
+        y < finish.bottom
+    ){
+        alert("🏆 You Win!");
+        resetGame();
+    }
+
+    if(y > window.innerHeight){
+        resetGame();
+    }
+
+    player.style.left = x + "px";
+    player.style.top = y + "px";
+
+    requestAnimationFrame(update);
+}
+
+update();
+</script>
+
+</body>
+</html> 

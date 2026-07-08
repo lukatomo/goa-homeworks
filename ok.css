@@ -1,0 +1,43 @@
+body {
+    background-color: #f3e5d8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'outfit', sans-serif;
+}
+
+.recipe-card {
+    background-color: white;
+    max-width: 736px;
+    padding: 40px;
+    border-radius: 24px;
+}
+
+.prep-section {
+    background-color: #fff7fa;
+    padding: 24px;
+    border-radius: 12px;
+    margin: 32px 0;
+}
+
+.nutrition-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.nutrition-table td {
+    padding: 12px 24px;
+    border-collapse: collapse;
+}
+
+.nutrition-table tr:last-child td {
+    border-bottom: none;
+}
+
+.bold-nutrition {
+    color: #7a284e;
+    font-weight: 700;
+}
+

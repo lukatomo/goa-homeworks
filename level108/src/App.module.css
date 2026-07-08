@@ -1,0 +1,14 @@
+.title {
+    color: red;
+}
+
+.text {
+    color: blue;
+    font-size: 20px;
+}
+
+.box {
+    background-color: lightgreen;
+    padding: 10px;
+    border-radius: 10px;
+}

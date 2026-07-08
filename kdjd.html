@@ -1,0 +1,993 @@
+<!-- <!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernShop & Arcade 🎮</title>
+    <style>
+        /* ==========================================================================
+           1. ზოგადი და ნავიგაციის სტილები
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ნავიგაცია */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .logo span {
+            color: #ff4757;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4757;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff4757;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        /* ==========================================================================
+           2. მაღაზიის სექციები (Hero & Products)
+           ========================================================================== */
+        /* ჰერო ბანერი */
+        .hero {
+            height: 50vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff4757;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover {
+            background: #e84118;
+        }
+
+        .btn-secondary {
+            background: #2f3542;
+        }
+        .btn-secondary:hover {
+            background: #57606f;
+        }
+
+        /* პროდუქტების სექცია */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #222;
+        }
+
+        .product-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4757;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #2f3542;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background: #ff4757;
+        }
+
+        /* ==========================================================================
+           3. თამაშის სექციის სტილები (Arcade Zone)
+           ========================================================================== */
+        .game-section {
+            background: #1e1e24;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .game-section h2 {
+            color: #ff4757;
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .game-section p {
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            background: #2f3542;
+            border: 4px solid #ff4757;
+            border-radius: 10px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .scoreboard {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            position: absolute;
+            width: 100%;
+            z-index: 10;
+        }
+
+        .game-area {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            cursor: crosshair;
+        }
+
+        .basket {
+            position: absolute;
+            bottom: 20px;
+            left: 170px;
+            width: 60px;
+            height: 50px;
+            font-size: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .falling-item {
+            position: absolute;
+            font-size: 35px;
+            width: 40px;
+            height: 40px;
+        }
+
+        .game-over-screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .game-over-screen h2 {
+            font-size: 32px;
+            color: #ff4757;
+            margin-bottom: 10px;
+        }
+
+        .game-over-screen button {
+            padding: 10px 25px;
+            font-size: 16px;
+            background: #ff4757;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Modern<span>Shop</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">მთავარი</a></li>
+                <li><a href="#products-section">მაღაზია</a></li>
+                <li><a href="#game-section">ითამაშე & მოიგე</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">
+            🛒 <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>აღმოაჩინე და ითამაშე</h1>
+            <p>იყიდე საუკეთესო პროდუქტები ან გამოსცადე შენი იღბალი ჩვენს არკადაში!</p>
+            <a href="#products-section" class="btn">მაღაზია</a>
+            <a href="#game-section" class="btn btn-secondary">არკადული ზონა 🎮</a>
+        </div>
+    </section>
+
+    <section class="container" id="products-section">
+        <h2 class="section-title">რჩეული პროდუქტები</h2>
+        <div class="products-grid" id="products-container">
+            </div>
+    </section>
+
+    <section class="game-section" id="game-section">
+        <h2>გასართობი ზონა: დაიჭირე ფასდაკლება!</h2>
+        <p>ამოძრავე კალათა მაუსით, დაიჭირე პროდუქტები და დაამყარე რეკორდი.</p>
+
+        <div class="game-container">
+            <div class="scoreboard">
+                <div>ქულა: <span id="score">0</span></div>
+                <div>სიცოცხლე: <span id="lives">3</span></div>
+            </div>
+
+            <div class="game-area" id="game-area">
+                <div class="basket" id="basket">🛒</div>
+            </div>
+
+            <div class="game-over-screen" id="game-over">
+                <h2>Game Over! 🎮</h2>
+                <p>შენი ქულაა: <span id="final-score">0</span></p>
+                <button onclick="restartGame()">სცადე თავიდან</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* --- მაღაზიის ფუნქციონალი --- */
+        const products = [
+            { id: 1, title: "სპორტული ფეხსაცმელი", price: "120 ₾", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400" },
+            { id: 2, title: "სმარტ საათი", price: "250 ₾", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400" },
+            { id: 3, title: "უკაბელო ყურსასმენები", price: "180 ₾", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400" },
+            { id: 4, title: "", price: "სკოლა ყლეა ₾", image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=400" }
+        ];
+
+        const productsContainer = document.getElementById('products-container');
+        const cartCount = document.getElementById('cart-count');
+        let currentCartCount = 0;
+
+        function displayProducts() {
+            productsContainer.innerHTML = products.map(product => `
+                <div class="product-card">
+                    <img src="${product.image}" alt="${product.title}" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">${product.title}</h3>
+                        <p class="product-price">${product.price}</p>
+                        <button class="add-to-cart" onclick="addToCart()">კალათაში დამატება</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addToCart() {
+            currentCartCount++;
+            cartCount.textContent = currentCartCount;
+            cartCount.style.transform = "scale(1.3)";
+            setTimeout(() => cartCount.style.transform = "scale(1)", 200);
+        }
+
+        /* --- თამაშის ფუნქციონალი --- */
+        const gameArea = document.getElementById('game-area');
+        const basket = document.getElementById('basket');
+        const scoreDisplay = document.getElementById('score');
+        const livesDisplay = document.getElementById('lives');
+        const gameOverScreen = document.getElementById('game-over');
+        const finalScoreDisplay = document.getElementById('final-score');
+
+        const itemsPool = ['👟', '⌚', '🎧', '🎒', '📱', '👕'];
+        let score = 0;
+        let lives = 3;
+        let itemInterval;
+        let isGameOver = false;
+        let itemSpeed = 4;
+
+        // კალათის მოძრაობა მაუსზე თამაშის ზონაში
+        gameArea.addEventListener('mousemove', (e) => {
+            if (isGameOver) return;
+            const rect = gameArea.getBoundingClientRect();
+            let relativeX = e.clientX - rect.left;
+            
+            if (relativeX < 30) relativeX = 30;
+            if (relativeX > rect.width - 30) relativeX = rect.width - 30;
+            
+            basket.style.left = (relativeX - 30) + 'px';
+        });
+
+        function spawnItem() {
+            if (isGameOver) return;
+
+            const item = document.createElement('div');
+            item.classList.add('falling-item');
+            item.innerText = itemsPool[Math.floor(Math.random() * itemsPool.length)];
+            
+            const randomX = Math.floor(Math.random() * (gameArea.clientWidth - 40));
+            item.style.left = randomX + 'px';
+            item.style.top = '0px';
+
+            gameArea.appendChild(item);
+
+            let itemY = 0;
+            function fall() {
+                if (isGameOver) {
+                    item.remove();
+                    return;
+                }
+
+                itemY += itemSpeed;
+                item.style.top = itemY + 'px';
+
+                const basketRect = basket.getBoundingClientRect();
+                const itemRect = item.getBoundingClientRect();
+
+                // შეჯახების შემოწმება
+                if (
+                    itemRect.bottom >= basketRect.top &&
+                    itemRect.right >= basketRect.left &&
+                    itemRect.left <= basketRect.right &&
+                    itemRect.top <= basketRect.bottom
+                ) {
+                    score++;
+                    scoreDisplay.innerText = score;
+                    item.remove();
+                    if (score % 5 === 0) itemSpeed += 0.5;
+                    return;
+                }
+
+                // თუ მიწას დაეცა
+                if (itemY > gameArea.clientHeight - 40) {
+                    lives--;
+                    livesDisplay.innerText = lives;
+                    item.remove();
+                    if (lives <= 0) endGame();
+                    return;
+                }
+
+                requestAnimationFrame(fall);
+            }
+            requestAnimationFrame(fall);
+        }
+
+        function endGame() {
+            isGameOver = true;
+            clearInterval(itemInterval);
+            finalScoreDisplay.innerText = score;
+            gameOverScreen.style.display = 'flex';
+        }
+
+        function restartGame() {
+            document.querySelectorAll('.falling-item').forEach(el => el.remove());
+            score = 0;
+            lives = 3;
+            itemSpeed = 4;
+            isGameOver = false;
+            scoreDisplay.innerText = score;
+            livesDisplay.innerText = lives;
+            gameOverScreen.style.display = 'none';
+            basket.style.left = '170px';
+            startSpawning();
+        }
+
+        function startSpawning() {
+            itemInterval = setInterval(spawnItem, 1200);
+        }
+
+        // საიტის გაშვება
+        displayProducts();
+        startSpawning();
+    </script>
+</body>
+</html> 
+
+  
+
+
+ -->
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernShop & Geometry Dash 🎮</title>
+    <style>
+        /* ==========================================================================
+           1. ზოგადი და ნავიგაციის სტილები
+           ========================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ნავიგაცია */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #222;
+        }
+
+        .logo span {
+            color: #ff4757;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin: 0 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff4757;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: #ff4757;
+            color: white;
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 50%;
+        }
+
+        /* ==========================================================================
+           2. მაღაზიის სექციები (Hero & Products)
+           ========================================================================== */
+        .hero {
+            height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=1200') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-content h1 { font-size: 42px; margin-bottom: 15px; }
+        .hero-content p { font-size: 18px; margin-bottom: 25px; }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff4757;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s;
+            margin: 5px;
+        }
+
+        .btn:hover { background: #e84118; }
+        .btn-secondary { background: #00bcd4; }
+        .btn-secondary:hover { background: #0097a7; }
+
+        .section-title { text-align: center; margin-bottom: 40px; font-size: 32px; }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-card:hover { transform: translateY(-5px); }
+        .product-img { width: 100%; height: 200px; object-fit: cover; }
+        .product-info { padding: 20px; text-align: center; }
+        .product-title { font-size: 18px; margin-bottom: 10px; }
+        .product-price { font-size: 20px; font-weight: bold; color: #ff4757; margin-bottom: 15px; }
+        
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background: #2f3542;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .add-to-cart:hover { background: #ff4757; }
+
+        /* ==========================================================================
+           3. GEOMETRY DASH სტილები
+           ========================================================================== */
+        .game-section {
+            background: #0f111a;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .game-section h2 { color: #00bcd4; margin-bottom: 10px; font-size: 32px; }
+        .game-section p { color: #888; margin-bottom: 20px; }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            background: linear-gradient(#1a1c29, #0f111a);
+            border: 4px solid #00bcd4;
+            border-radius: 8px;
+            margin: 0 auto;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .game-score {
+            position: absolute;
+            top: 15px;
+            left: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            z-index: 10;
+        }
+
+        /* მიწის ხაზი */
+        .floor {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 40px;
+            background: #232741;
+            border-top: 3px solid #00bcd4;
+        }
+
+        /* მოთამაშე კუბი */
+        .player {
+            position: absolute;
+            bottom: 40px; /* ზუსტად მიწაზე */
+            left: 80px;
+            width: 40px;
+            height: 40px;
+            background: #ff007f;
+            border: 3px solid #fff;
+            box-shadow: 0 0 15px #ff007f;
+            border-radius: 4px;
+        }
+
+        /* ანიმაცია გადახტომისას (ტრიალი) */
+        .jump-animation {
+            animation: jump-spin 0.6s linear;
+        }
+
+        @keyframes jump-spin {
+            0% { bottom: 40px; transform: rotate(0deg); }
+            50% { bottom: 140px; transform: rotate(90deg); }
+            100% { bottom: 40px; transform: rotate(180deg); }
+        }
+
+        /* დაბრკოლება - შიპი */
+        .obstacle {
+            position: absolute;
+            bottom: 40px;
+            width: 30px;
+            height: 35px;
+            background: #00bcd4;
+            clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+            box-shadow: 0 0 10px #00bcd4;
+        }
+
+        /* თამაშის დასრულების ეკრანი */
+        .game-over-screen {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+        }
+
+        .game-over-screen h2 { font-size: 36px; color: #ff4757; margin-bottom: 10px; }
+
+        .game-over-screen button {
+            padding: 10px 25px;
+            font-size: 16px;
+            background: #00bcd4;
+            color: #0f111a;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.2s;
+        }
+        .game-over-screen button:hover { background: #fff; }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo">Modern<span>Shop</span></div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">მთავარი</a></li>
+                <li><a href="#products-section">მაღაზია</a></li>
+                <li><a href="#game-section">Dash ზონა 🎮</a></li>
+            </ul>
+        </nav>
+        <div class="cart-icon">🛒 <span id="cart-count">0</span></div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Geometry Dash მაღაზიაში!</h1>
+            <p>გადაახტი დაბრკოლებებს და დაამყარე ახალი რეკორდი!</p>
+            <a href="#products-section" class="btn">პროდუქტები</a>
+            <a href="#game-section" class="btn btn-secondary">ითამაშე 🎮</a>
+        </div>
+    </section>
+
+    <section class="container" id="products-section">
+        <h2 class="section-title">ჩვენი პროდუქცია</h2>
+        <div class="products-grid" id="products-container"></div>
+    </section>
+
+    <section class="game-section" id="game-section">
+        <h2>GEOMETRY DASH: MINI ARCADE</h2>
+        <p>დააჭირე <b>Space-ს</b> ან <b>დააკლიკე სათამაშო ველს</b> გადასახტომად.</p>
+
+        <div class="game-container" id="game-container" onclick="jump()">
+            <div class="game-score">ქულა: <span id="game-score-val">0</span></div>
+            <div class="player" id="player"></div>
+            <div class="floor"></div>
+
+            <div class="game-over-screen" id="game-over">
+                <h2>BOOM! Game Over 💥</h2>
+                <p>შენი ქულაა: <span id="final-score">0</span></p>
+                <button onclick="event.stopPropagation(); restartGame();">ცადე თავიდან</button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        /* --- მაღაზიის კოდი --- */
+        const products = [
+            { id: 1, title: "სპორტული ფეხსაცმელი", price: "120 ₾", image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=400" },
+            { id: 2, title: "სმარტ საათი", price: "250 ₾", image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400" },
+            { id: 3, title: "უკაბელო ყურსასმენები", price: "180 ₾", image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=400" }
+        ];
+
+        const productsContainer = document.getElementById('products-container');
+        const cartCount = document.getElementById('cart-count');
+        let currentCartCount = 0;
+
+        productsContainer.innerHTML = products.map(product => `
+            <div class="product-card">
+                <img src="${product.image}" alt="${product.title}" class="product-img">
+                <div class="product-info">
+                    <h3 class="product-title">${product.title}</h3>
+                    <p class="product-price">${product.price}</p>
+                    <button class="add-to-cart" onclick="addToCart()">კალათაში დამატება</button>
+                </div>
+            </div>
+        `).join('');
+
+        function addToCart() {
+            currentCartCount++;
+            cartCount.textContent = currentCartCount;
+        }
+
+        /* --- GEOMETRY DASH ლოგიკა --- */
+        const player = document.getElementById('player');
+        const gameContainer = document.getElementById('game-container');
+        const gameOverScreen = document.getElementById('game-over');
+        const scoreVal = document.getElementById('game-score-val');
+        const finalScore = document.getElementById('final-score');
+
+        let isJumping = false;
+        let isGameOver = false;
+        let score = 0;
+        let obstacleTimeout;
+        let collisionCheckInterval;
+
+        // გადახტომის ფუნქცია
+        function jump() {
+            if (isJumping || isGameOver) return;
+            isJumping = true;
+            player.classList.add('jump-animation');
+
+            // ანიმაციის დასრულების შემდეგ კლასის მოხსნა
+            setTimeout(() => {
+                player.classList.remove('jump-animation');
+                isJumping = false;
+            }, 600);
+        }
+
+        // Space ღილაკზე გადახტომა
+        document.addEventListener('keydown', (e) => {
+            if (e.code === 'Space') {
+                e.preventDefault(); // გვერდი რომ არ ჩამოცურდეს
+                jump();
+            }
+        });
+
+        // შიპების შექმნა
+        function spawnObstacle() {
+            if (isGameOver) return;
+
+            const obstacle = document.createElement('div');
+            obstacle.classList.add('obstacle');
+            obstacle.style.right = '-40px'; // იწყებს ეკრანის გარედან
+            gameContainer.appendChild(obstacle);
+
+            let obstaclePos = -40;
+            let obstacleSpeed = 5 + Math.floor(score / 5); // ქულებთან ერთად სიჩქარე იზრდება
+
+            function move() {
+                if (isGameOver) {
+                    obstacle.remove();
+                    return;
+                }
+
+                obstaclePos += obstacleSpeed;
+                obstacle.style.right = obstaclePos + 'px';
+
+                // როცა შიპი მარცხენა მხარეს გავა (მოთამაშეს ასცდება)
+                if (obstaclePos > gameContainer.clientWidth) {
+                    score++;
+                    scoreVal.innerText = score;
+                    obstacle.remove();
+                    return;
+                }
+
+                requestAnimationFrame(move);
+            }
+
+            requestAnimationFrame(move);
+
+            // შემდეგი შიპის დრო (რანდომული ინტერვალით)
+            let nextSpawn = 1500 + Math.random() * 2000;
+            obstacleTimeout = setTimeout(spawnObstacle, nextSpawn);
+        }
+
+        // შეჯახების შემოწმება (Collision Detection)
+        function checkCollision() {
+            collisionCheckInterval = setInterval(() => {
+                const obstacles = document.querySelectorAll('.obstacle');
+                
+                obstacles.forEach(obs => {
+                    const playerRect = player.getBoundingClientRect();
+                    const obsRect = obs.getBoundingClientRect();
+
+                    // ჰორიზონტალური და ვერტიკალური გადაკვეთის ზუსტი ფორმულა
+                    if (
+                        playerRect.right > obsRect.left + 5 &&
+                        playerRect.left < obsRect.right - 5 &&
+                        playerRect.bottom > obsRect.top + 5
+                    ) {
+                        endGame();
+                    }
+                });
+            }, 10);
+        }
+
+        function endGame() {
+            isGameOver = true;
+            clearTimeout(obstacleTimeout);
+            clearInterval(collisionCheckInterval);
+            finalScore.innerText = score;
+            gameOverScreen.style.display = 'flex';
+        }
+
+        function restartGame() {
+            document.querySelectorAll('.obstacle').forEach(obs => obs.remove());
+            score = 0;
+            scoreVal.innerText = score;
+            isGameOver = false;
+            isJumping = false;
+            player.classList.remove('jump-animation');
+            gameOverScreen.style.display = 'none';
+            
+            spawnObstacle();
+            checkCollision();
+        }
+
+        // თამაშის დაწყება
+        spawnObstacle();
+        checkCollision();
+    </script>
+</body>
+</html> 
